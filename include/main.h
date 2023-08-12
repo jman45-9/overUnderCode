@@ -66,12 +66,16 @@ class Robot {
         Motor frontRight;
         Motor backLeft;
         Motor backRight;
+        Motor centerLeft;
+        Motor centerRight;
 
         Robot(int* motors) : 
             frontLeft (*motors),
             frontRight (*(motors + 1)),
             backLeft (*(motors + 2)),
-            backRight (*(motors + 3))
+            backRight (*(motors + 3)),
+            centerLeft (*(motors + 4)),
+            centerRight(*(motors + 5))
         {
 
         }
@@ -79,14 +83,16 @@ class Robot {
 
     void driveGo(Controller controller)
     {
-	    int leftStick = controller.get_analog(E_CONTROLLER_ANALOG_LEFT_Y);
-	    int rightStick = controller.get_analog(E_CONTROLLER_ANALOG_RIGHT_Y);
+        int leftStick = controller.get_analog(E_CONTROLLER_ANALOG_LEFT_Y);
+        int rightStick = controller.get_analog(E_CONTROLLER_ANALOG_RIGHT_Y);
 
         this->frontLeft.move(leftStick);
         this->backLeft.move(leftStick);
+        this->centerLeft.move(leftStick);
 
         this->frontRight.move(rightStick);
         this->backRight.move(rightStick);
+        this->centerRight.move(rightStick);
     }
 };
 
@@ -110,7 +116,9 @@ void opcontrol(void);
 #endif
 
 // global variables
-int motors[] = {1,11,2,12};
+
+//frontLeft, backRight, backLeft, backRight, centerLeft, centerLeft 
+int motors[] = {1,11,2,12, 6, 16};
 Robot robot (motors);
 
 #endif  // _PROS_MAIN_H_
