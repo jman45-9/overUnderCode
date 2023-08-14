@@ -1,5 +1,10 @@
 #include "main.h"
 
+//frontLeft, backRight, backLeft, backRight, centerLeft, centerLeft 
+
+int motors[] = {1,11,2,12, 6, 16};
+Robot robot (motors);
+
 /**
  * A callback function for LLEMU's center button.
  *
