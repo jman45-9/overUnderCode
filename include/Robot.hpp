@@ -16,9 +16,11 @@ class Robot {
         Motor centerRight;
         Motor intake;
 
+        bool intakeOn;
+
         Robot(int *driveMotors, int intakeMotor);
         void driveGo(Controller controller);
-
+        void intakeToggle();
 
 };
 

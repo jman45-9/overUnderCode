@@ -9,7 +9,7 @@ Robot::Robot(int *driveMotors, int intakeMotor) :
         centerRight(*(driveMotors + 5)),
         intake(intakeMotor)
 {
-
+        this->intakeOn = 0;
 }
 
 void Robot::driveGo(Controller controller)
@@ -24,4 +24,10 @@ void Robot::driveGo(Controller controller)
         this->frontRight.move(rightStick);
         this->backRight.move(rightStick);
         this->centerRight.move(rightStick);
+}
+
+void Robot::intakeToggle()
+{
+        this->intakeOn = !this->intakeOn;
+        this->intake.move(127 * intakeOn);
 }
