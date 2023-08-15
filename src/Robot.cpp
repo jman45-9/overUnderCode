@@ -1,12 +1,13 @@
 #include "../include/Robot.hpp"
 
-Robot::Robot(int *motors) :
-            frontLeft (*motors),
-            frontRight (*(motors + 1)),
-            backLeft (*(motors + 2)),
-            backRight (*(motors + 3)),
-            centerLeft (*(motors + 4)),
-            centerRight(*(motors + 5))
+Robot::Robot(int *driveMotors, int intakeMotor) :
+        frontLeft (*driveMotors),
+        frontRight (*(driveMotors + 1)),
+        backLeft (*(driveMotors + 2)),
+        backRight (*(driveMotors + 3)),
+        centerLeft (*(driveMotors + 4)),
+        centerRight(*(driveMotors + 5)),
+        intake(intakeMotor)
 {
 
 }

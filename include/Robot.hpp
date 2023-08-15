@@ -14,8 +14,9 @@ class Robot {
         Motor backRight;
         Motor centerLeft;
         Motor centerRight;
+        Motor intake;
 
-        Robot(int *motors);
+        Robot(int *driveMotors, int intakeMotor);
         void driveGo(Controller controller);
 
 
