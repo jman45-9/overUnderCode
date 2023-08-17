@@ -19,6 +19,8 @@ class Robot {
         bool intakeOn;
 
         Robot(int *driveMotors, int intakeMotor);
+        void moveLeft(int voltage);
+        void moveRight(int voltage);
         void driveGo(Controller controller);
         void intakeToggle();
 
