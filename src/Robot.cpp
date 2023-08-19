@@ -1,11 +1,16 @@
 #include "../include/Robot.hpp"
 
+double inToDeg(double deg, double wheelCir)
+{
+        
+}
+
 Robot::Robot(int *driveMotors, int intakeMotor) :
-        frontLeft (*driveMotors),
-        frontRight (*(driveMotors + 1)),
-        backLeft (*(driveMotors + 2)),
-        backRight (*(driveMotors + 3)),
-        centerLeft (*(driveMotors + 4)),
+        topLeft (*driveMotors),
+        topRight (*(driveMotors + 1), 1),
+        bottomLeft (*(driveMotors + 2)),
+        bottomRight (*(driveMotors + 3), 1),
+        centerLeft (*(driveMotors + 4), 1),
         centerRight(*(driveMotors + 5)),
         intake(intakeMotor)
 {
@@ -17,12 +22,12 @@ void Robot::driveGo(Controller controller)
         int leftStick = controller.get_analog(E_CONTROLLER_ANALOG_LEFT_Y);
         int rightStick = controller.get_analog(E_CONTROLLER_ANALOG_RIGHT_Y);
 
-        this->frontLeft.move(leftStick);
-        this->backLeft.move(leftStick);
+        this->topLeft.move(leftStick);
+        this->bottomLeft.move(leftStick);
         this->centerLeft.move(leftStick);
 
-        this->frontRight.move(rightStick);
-        this->backRight.move(rightStick);
+        this->topRight.move(rightStick);
+        this->bottomRight.move(rightStick);
         this->centerRight.move(rightStick);
 }
 

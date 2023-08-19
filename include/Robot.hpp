@@ -2,16 +2,19 @@
 #define INCLUDE_ROBOT_H_
 
 #include "api.h"
+#include <type_traits>
 
 using namespace pros;
 using namespace pros::literals;
 
+double inToDeg(double deg, double wheelCir);
+
 class Robot {
     public:
-        Motor frontLeft;
-        Motor frontRight;
-        Motor backLeft;
-        Motor backRight;
+        Motor topLeft;
+        Motor topRight;
+        Motor bottomLeft;
+        Motor bottomRight;
         Motor centerLeft;
         Motor centerRight;
         Motor intake;
