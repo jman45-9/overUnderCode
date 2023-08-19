@@ -2,12 +2,14 @@
 #define INCLUDE_ROBOT_H_
 
 #include "api.h"
-#include <type_traits>
+# include <math.h>
+
+#define _USE_MATH_DEFINES
 
 using namespace pros;
 using namespace pros::literals;
 
-double inToDeg(double deg, double wheelCir);
+double inToDeg(double in, double wheelCir);
 
 class Robot {
     public:

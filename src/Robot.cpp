@@ -1,8 +1,8 @@
 #include "../include/Robot.hpp"
 
-double inToDeg(double deg, double wheelCir)
+double inToDeg(double in, double wheelDiam)
 {
-        
+        return (in / (M_PI * wheelDiam)) * 360;
 }
 
 Robot::Robot(int *driveMotors, int intakeMotor) :
