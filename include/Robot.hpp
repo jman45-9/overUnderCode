@@ -2,6 +2,7 @@
 #define INCLUDE_ROBOT_H_
 
 #include "api.h"
+#include "pros/rotation.hpp"
 # include <math.h>
 
 #define _USE_MATH_DEFINES
@@ -21,9 +22,11 @@ class Robot {
         Motor centerRight;
         Motor intake;
 
+        Rotation puncherSensor;
+
         bool intakeOn;
 
-        Robot(int *driveMotors, int intakeMotor);
+        Robot(int *driveMotors, int intakeMotor, int puncherSensor);
         void moveLeft(int voltage);
         void moveRight(int voltage);
         void driveGo(Controller controller);
