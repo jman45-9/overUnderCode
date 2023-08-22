@@ -29,6 +29,8 @@ class Robot {
         void driveGo(Controller controller);
         void intakeToggle();
 
+        void autonDrive(double in);
+
 };
 
 #endif //INCLUDE_ROBOT_H_
