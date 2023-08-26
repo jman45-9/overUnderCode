@@ -5,6 +5,11 @@ double inToDeg(double in, double wheelDiam)
         return (in / (M_PI * wheelDiam)) * 360;
 }
 
+bool isAtDeg(double deg, Rotation sensor)
+{
+        return sensor.get_position() >= deg; 
+}
+
 Robot::Robot(int *driveMotors, int intakeMotor, int puncherSensor) :
         topLeft (*driveMotors, E_MOTOR_GEAR_GREEN, 0, E_MOTOR_ENCODER_DEGREES),
         topRight (*(driveMotors + 1), E_MOTOR_GEAR_GREEN, 1, E_MOTOR_ENCODER_DEGREES),
@@ -13,7 +18,8 @@ Robot::Robot(int *driveMotors, int intakeMotor, int puncherSensor) :
         centerLeft (*(driveMotors + 4), E_MOTOR_GEAR_GREEN, 1, E_MOTOR_ENCODER_DEGREES),
         centerRight(*(driveMotors + 5), E_MOTOR_GEAR_GREEN, 0, E_MOTOR_ENCODER_DEGREES),
         intake(intakeMotor),
-        puncherSensor(puncherSensor)
+        puncherSensor(puncherSensor),
+        puncher(6)
 {
         this->intakeOn = 0;
 }
@@ -49,5 +55,10 @@ void Robot::autonDrive(double in)
         this->topRight.move_absolute(deg, 200);
         this->bottomRight.move_absolute(deg, 200);
         this->centerRight.move_absolute(deg, 200);
+}
+
+void Robot::firePuncher()
+{
+        
 }
 

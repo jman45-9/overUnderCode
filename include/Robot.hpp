@@ -11,6 +11,7 @@ using namespace pros;
 using namespace pros::literals;
 
 double inToDeg(double in, double wheelCir);
+bool isAtDeg(double deg, Rotation sensor);
 
 class Robot {
     public:
@@ -21,6 +22,7 @@ class Robot {
         Motor centerLeft;
         Motor centerRight;
         Motor intake;
+        Motor puncher;
 
         Rotation puncherSensor;
 
@@ -31,9 +33,9 @@ class Robot {
         void moveRight(int voltage);
         void driveGo(Controller controller);
         void intakeToggle();
+        void firePuncher();
 
         void autonDrive(double in);
-
 };
 
 #endif //INCLUDE_ROBOT_H_
