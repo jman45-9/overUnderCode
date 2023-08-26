@@ -3,7 +3,7 @@
 //topLeft, topRight, bottomLeft, bottomRight, centerLeft, centerLeft 
 
 int motors[] = {20,11,18,13, 19, 12};
-Robot robot (motors, 7);
+Robot robot (motors, 7, 8);
 
 /**
  * A callback function for LLEMU's center button.
@@ -89,6 +89,7 @@ void opcontrol() {
 		robot.driveGo(master);
 		if(master.get_digital_new_press(E_CONTROLLER_DIGITAL_L1))
 			robot.intakeToggle();
-
+		if(master.get_digital_new_press(E_CONTROLLER_DIGITAL_L2))
+			robot.firePuncher();
 	}
 }
