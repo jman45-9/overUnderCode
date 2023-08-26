@@ -59,6 +59,14 @@ void Robot::autonDrive(double in)
 
 void Robot::firePuncher()
 {
-        
+        this->puncher.move(127);
+        while(isAtDeg(270, this->puncherSensor))
+                ;
+        this->puncher.brake();
+        this->puncher.move(127);
+        while(isAtDeg(45, this->puncherSensor))
+                ;
+        this->puncher.brake();
+        this->puncherSensor.reset_position();
 }
 
