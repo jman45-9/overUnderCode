@@ -7,7 +7,7 @@ double inToDeg(double in, double wheelDiam)
 
 bool isAtDeg(double deg, Rotation sensor)
 {
-        return sensor.get_position() >= deg; 
+        return sensor.get_position()/100 >= deg; 
 }
 
 Robot::Robot(int *driveMotors, int intakeMotor, int puncherSensor) :
@@ -22,6 +22,12 @@ Robot::Robot(int *driveMotors, int intakeMotor, int puncherSensor) :
         puncher(6)
 {
         this->intakeOn = 0;
+        this->puncher.set_brake_mode(pros::E_MOTOR_BRAKE_BRAKE);
+        this->puncherSensor.set_reversed(1);
+        std::cout << "test 2" << '\n';
+        std::cout << this->puncherSensor.get_position() << '\n';
+        this->puncherSensor.reset_position();
+        std::cout << this->puncherSensor.get_position() << '\n';
 }
 
 void Robot::driveGo(Controller controller)
@@ -59,13 +65,16 @@ void Robot::autonDrive(double in)
 
 void Robot::firePuncher()
 {
+        this->puncherSensor.reset_position();
         this->puncher.move(127);
-        while(isAtDeg(270, this->puncherSensor))
-                ;
+        int counter = 0;
+        while(!isAtDeg(270, this->puncherSensor))
+                pros::delay(10);
         this->puncher.brake();
+        pros::delay(1000);
         this->puncher.move(127);
-        while(isAtDeg(45, this->puncherSensor))
-                ;
+        while(!isAtDeg(360, this->puncherSensor))
+                pros::delay(10);
         this->puncher.brake();
         this->puncherSensor.reset_position();
 }

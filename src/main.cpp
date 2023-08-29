@@ -83,7 +83,8 @@ void autonomous() {}
 
 void opcontrol() {
 	Controller master(E_CONTROLLER_MASTER);
-
+	Robot robot (motors, 7, 8);
+	std::cout << "test 1" << '\n';
 	while (true) 
 	{
 		robot.driveGo(master);
