@@ -87,10 +87,5 @@ void opcontrol() {
 	std::cout << "test 1" << '\n';
 	while (true) 
 	{
-		robot.driveGo(master);
-		if(master.get_digital_new_press(E_CONTROLLER_DIGITAL_L1))
-			robot.intakeToggle();
-		if(master.get_digital_new_press(E_CONTROLLER_DIGITAL_L2))
-			robot.firePuncher();
-	}
+    }
 }

@@ -2,16 +2,12 @@
 #define DRIVE_TRAIN_OBJ_HEAD
 
 #include "api.h"
+#include "pid.hpp"
 
 using namespace pros;
 using namespace pros::literals;
 
-struct PidTuning 
-{
-    double kp;
-    double ki;
-    double kd;
-}
+
 
 class DriveTrain 
 {
@@ -22,8 +18,17 @@ class DriveTrain
         Motor bottomRight;
         Motor centerLeft;
         Motor centerRight;
+        Imu inertSen;
+
+        PID::PID_OBJ fwdPID;
+        PID::PID_OBJ turnPID;
+
+        int motorInit;
         
-        DriveTrain(int *motors);
-        void pidFunc(double target, bool turning);
-}
+        DriveTrain(int *motors, int inertPort);
+        void driveGo(Controller controller);
+
+        //fwdPID funcs
+        double getCurrentRot();
+};
 #endif //DRIVE_TRAIN_OBJ_HEAD
