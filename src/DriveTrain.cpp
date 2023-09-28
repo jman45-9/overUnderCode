@@ -11,9 +11,7 @@ DriveTrain::DriveTrain(int *motors, int inertPort) :
     fwdPID(),
     turnPID()
 {
-    PID::PID_tuning fwdTuning, turnTuning;
-    fwdTuning.kp = 1; fwdTuning.ki = 0; fwdTuning.kd = 0;
-    turnTuning.kp = 1; turnTuning.ki = 0; turnTuning.kd = 0;
+    this->turnPID.kp=1;this->turnPID.ki=0;this->turnPID.kd=0;
 }
 
 void DriveTrain::driveGo(Controller controller)
@@ -30,10 +28,29 @@ void DriveTrain::driveGo(Controller controller)
         this->centerRight.move(rightStick);
 }
 
-
-double DriveTrain::getCurrentRot()
+void DriveTrain::turnAuton(double deg, bool left)
 {
-    return this->inertSen.get_rotation();
+    int successCycles = 0;
+    this->turnPID.reset(deg);
+           
+    while(true)
+    {
+        double calc = turnPID.pidCalc(deg,this->inertSen.get_rotation());
+        if (left)
+            this->turn(calc);
+        else
+            this->turn(calc);
+    }
 }
 
+//Right by default
+void DriveTrain::turn(double power)
+{
+    this->topLeft.move(power);
+    this->bottomLeft.move(power);
+    this->centerLeft.move(power);
 
+    this->topRight.move(- power);
+    this->bottomRight.move(- power);
+    this->centerRight.move(- power);
+}

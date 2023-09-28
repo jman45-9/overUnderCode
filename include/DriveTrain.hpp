@@ -27,8 +27,9 @@ class DriveTrain
         
         DriveTrain(int *motors, int inertPort);
         void driveGo(Controller controller);
+        void turn(double power);
 
-        //fwdPID funcs
-        double getCurrentRot();
+        //turn funcs
+        void turnAuton(double deg, bool left);
 };
 #endif //DRIVE_TRAIN_OBJ_HEAD

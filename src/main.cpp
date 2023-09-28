@@ -1,6 +1,6 @@
 #include "main.h"
 
-//topLeft, topRight, bottomLeft, bottomRight, centerLeft, centerLeft 
+//topLeft, topRight, bottomLeft, bottomRight, centerLeft, centerRight
 
 int motors[] = {20,11,18,13, 19, 12};
 Robot robot (motors, 7, 8);

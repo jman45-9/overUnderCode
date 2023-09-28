@@ -12,13 +12,6 @@ using namespace pros::literals;
 namespace PID
 {
 
-struct PID_tuning
-{
-    double kp;
-    double ki;
-    double kd;
-};
-
 class PID_OBJ
 {
     public:
@@ -34,6 +27,7 @@ class PID_OBJ
         PID_OBJ();
 
         double pidCalc(double target, double current);
+        void reset(double target);
 };
 
 } //namespace PID end 

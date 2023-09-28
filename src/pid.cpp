@@ -21,3 +21,11 @@ double PID::PID_OBJ::pidCalc(double target, double current)
     this->lastErr = this->p;
     return (this->p*this->kp)+(this->i*this->ki)+(this->d*this->kd);
 }
+
+void PID::PID_OBJ::reset(double target)
+{
+    this->p=0;
+    this->i=0;
+    this->d=0;
+    this->lastErr = target;
+}
