@@ -28,6 +28,37 @@ void DriveTrain::driveGo(Controller controller)
         this->centerRight.move(rightStick);
 }
 
+
+
+//Right by default
+void DriveTrain::turn(double power)
+{
+    this->topLeft.move(power);
+    this->bottomLeft.move(power);
+    this->centerLeft.move(power);
+
+    this->topRight.move(- power);
+    this->bottomRight.move(- power);
+    this->centerRight.move(- power);
+}
+
+void DriveTrain::brake()
+{
+    this->topLeft.brake();
+    this->bottomLeft.brake();
+    this->centerLeft.brake();
+
+    this->topRight.move(- power);
+    this->bottomRight.move(- power);
+    this->centerRight.move(- power);
+}
+
+bool DriveTrain::isHeading(double target)
+{
+    return  this->inertSen.get_rotation() >= target 
+        && this->inertSen.get_rotation() <= 1 + target;
+}
+
 void DriveTrain::turnAuton(double deg, bool left)
 {
     int successCycles = 0;
@@ -40,17 +71,16 @@ void DriveTrain::turnAuton(double deg, bool left)
             this->turn(calc);
         else
             this->turn(calc);
+        
+        if(isHeading(deg))
+        {
+            if(successCycles == 4)
+                this->brake();
+            successCycles++;
+        }
+
+
+
+
     }
-}
-
-//Right by default
-void DriveTrain::turn(double power)
-{
-    this->topLeft.move(power);
-    this->bottomLeft.move(power);
-    this->centerLeft.move(power);
-
-    this->topRight.move(- power);
-    this->bottomRight.move(- power);
-    this->centerRight.move(- power);
 }

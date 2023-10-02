@@ -28,6 +28,8 @@ class DriveTrain
         DriveTrain(int *motors, int inertPort);
         void driveGo(Controller controller);
         void turn(double power);
+        void brake();
+        bool isHeading(double target);
 
         //turn funcs
         void turnAuton(double deg, bool left);
