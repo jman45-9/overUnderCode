@@ -47,7 +47,7 @@ void Robot::driveGo(Controller controller)
 void Robot::intakeToggle()
 {
         this->intakeOn = !this->intakeOn;
-        this->intake.move(127 * intakeOn);
+        this->intake.move((127*0.7) * intakeOn);
 }
 
 void Robot::autonDrive(double in)
