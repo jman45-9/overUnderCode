@@ -14,7 +14,7 @@ DriveTrain::DriveTrain(int *motors, int inertPort) :
     this->turnPID.kp=1;this->turnPID.ki=0;this->turnPID.kd=0;
 }
 
-void DriveTrain::driveGo(Controller controller)
+void DriveTrain::driveGo(double power)
 {
         int leftStick = controller.get_analog(E_CONTROLLER_ANALOG_LEFT_Y);
         int rightStick = controller.get_analog(E_CONTROLLER_ANALOG_RIGHT_Y);
@@ -48,9 +48,9 @@ void DriveTrain::brake()
     this->bottomLeft.brake();
     this->centerLeft.brake();
 
-    this->topRight.move(- power);
-    this->bottomRight.move(- power);
-    this->centerRight.move(- power);
+    this->topRight.brake();
+    this->bottomRight.brake();
+    this->centerRight.brake();
 }
 
 bool DriveTrain::isHeading(double target)
@@ -70,17 +70,16 @@ void DriveTrain::turnAuton(double deg, bool left)
         if (left)
             this->turn(calc);
         else
-            this->turn(calc);
+            this->turn(- calc);
         
         if(isHeading(deg))
         {
             if(successCycles == 4)
                 this->brake();
             successCycles++;
-        }
+        } else
+            successCycles = 0;
 
-
-
-
+        pros::delay(5);
     }
 }
