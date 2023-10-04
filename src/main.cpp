@@ -1,8 +1,8 @@
 #include "main.h"
 
 //topLeft, topRight, bottomLeft, bottomRight, centerLeft, centerLeft 
-
 int motors[] = {20,11,18,13, 19, 12};
+// motors, intake, puncher sensor
 Robot robot (motors, 7, 8);
 
 /**
