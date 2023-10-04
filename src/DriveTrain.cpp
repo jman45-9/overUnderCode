@@ -59,10 +59,46 @@ bool DriveTrain::isHeading(double target)
         && this->inertSen.get_rotation() <= 1 + target;
 }
 
+double DriveTrain::getDriveRotation()
+{
+    this->topLeft.get_rotation();
+    this->bottomLeft.get_rotation();
+    this->centerLeft.get_rotation();
+
+    this->topRight.get_rotation();
+    this->bottomRight.get_rotation();
+    this->centerRight.get_rotation();
+}
+
 void DriveTrain::turnAuton(double deg, bool left)
 {
     int successCycles = 0;
     this->turnPID.reset(deg);
+           
+    while(true)
+    {
+        double calc = turnPID.pidCalc(deg,this->inertSen.get_rotation());
+        if (left)
+            this->turn(calc);
+        else
+            this->turn(- calc);
+        
+        if(isHeading(deg))
+        {
+            if(successCycles == 4)
+                this->brake();
+            successCycles++;
+        } else
+            successCycles = 0;
+
+        pros::delay(5);
+    }
+}
+
+void DriveTrain::fwdAuton(double distance, bool fwd)
+{
+    int successCycles = 0;
+    this->fwdPID.reset(distance);
            
     while(true)
     {

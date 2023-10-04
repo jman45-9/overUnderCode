@@ -30,6 +30,7 @@ class DriveTrain
         void turn(double power);
         void brake();
         bool isHeading(double target);
+        double getDriveRotation();
 
         //turn funcs
         void turnAuton(double deg, bool left);
