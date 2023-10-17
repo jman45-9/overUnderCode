@@ -7,6 +7,7 @@ double inToDeg(double in, double wheelDiam)
 
 bool isAtDeg(double deg, Rotation sensor)
 {
+        std::cout << sensor.get_position() << '\n';
         return sensor.get_position()/100 >= deg; 
 }
 
