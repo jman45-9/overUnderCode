@@ -70,7 +70,10 @@ void Robot::firePuncher()
         this->puncher.move(127);
         int counter = 0;
         while(!isAtDeg(270, this->puncherSensor))
+        {
+                std::cout << this->puncherSensor.get_position();
                 pros::delay(10);
+        }
         this->puncher.brake();
         pros::delay(1000);
         this->puncher.move(127);
