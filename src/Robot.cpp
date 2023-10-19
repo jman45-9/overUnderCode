@@ -7,6 +7,7 @@ double inToDeg(double in, double wheelDiam)
 
 bool isAtDeg(double deg, Rotation sensor)
 {
+        std::cout << sensor.get_position() << '\n';
         return sensor.get_position()/100 >= deg; 
 }
 
@@ -29,7 +30,7 @@ Robot::Robot(int *driveMotors, int intakeMotor, int puncherSensor) :
 void Robot::intakeToggle()
 {
         this->intakeOn = !this->intakeOn;
-        this->intake.move(127 * intakeOn);
+        this->intake.move((127*0.7) * intakeOn);
 }
 
 void Robot::firePuncher()
@@ -38,7 +39,10 @@ void Robot::firePuncher()
         this->puncher.move(127);
         int counter = 0;
         while(!isAtDeg(270, this->puncherSensor))
+        {
+                std::cout << this->puncherSensor.get_position();
                 pros::delay(10);
+        }
         this->puncher.brake();
         pros::delay(1000);
         this->puncher.move(127);

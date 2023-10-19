@@ -102,13 +102,13 @@ void DriveTrain::fwdAuton(double distance, bool fwd)
            
     while(true)
     {
-        double calc = turnPID.pidCalc(deg,this->inertSen.get_rotation());
-        if (left)
+        double calc = turnPID.pidCalc(distance, getDriveRotation - initMtrROt);
+        if (fwd)
             this->driveGo(calc);
         else
             this->driveGo(- calc);
         
-        if(isHeading(deg))
+        if(isHeading(distance))
         {
             if(successCycles == 4)
                 this->brake();
