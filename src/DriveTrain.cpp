@@ -16,16 +16,14 @@ DriveTrain::DriveTrain(int *motors, int inertPort) :
 
 void DriveTrain::driveGo(double power)
 {
-        int leftStick = controller.get_analog(E_CONTROLLER_ANALOG_LEFT_Y);
-        int rightStick = controller.get_analog(E_CONTROLLER_ANALOG_RIGHT_Y);
 
-        this->topLeft.move(leftStick);
-        this->bottomLeft.move(leftStick);
-        this->centerLeft.move(leftStick);
+        this->topLeft.move(power);
+        this->bottomLeft.move(power);
+        this->centerLeft.move(power);
 
-        this->topRight.move(rightStick);
-        this->bottomRight.move(rightStick);
-        this->centerRight.move(rightStick);
+        this->topRight.move(power);
+        this->bottomRight.move(power);
+        this->centerRight.move(power);
 }
 
 
@@ -61,13 +59,14 @@ bool DriveTrain::isHeading(double target)
 
 double DriveTrain::getDriveRotation()
 {
-    this->topLeft.get_rotation();
-    this->bottomLeft.get_rotation();
-    this->centerLeft.get_rotation();
+    double totRot = this->topLeft.get_position() +
+    this->bottomLeft.get_position() +
+    this->centerLeft.get_position() +
+    this->topRight.get_position() +
+    this->bottomRight.get_position() +
+    this->centerRight.get_position();
 
-    this->topRight.get_rotation();
-    this->bottomRight.get_rotation();
-    this->centerRight.get_rotation();
+    return totRot / 6;
 }
 
 void DriveTrain::turnAuton(double deg, bool left)
@@ -99,14 +98,15 @@ void DriveTrain::fwdAuton(double distance, bool fwd)
 {
     int successCycles = 0;
     this->fwdPID.reset(distance);
+    double initMtrRot = getDriveRotation();
            
     while(true)
     {
         double calc = turnPID.pidCalc(deg,this->inertSen.get_rotation());
         if (left)
-            this->turn(calc);
+            this->driveGo(calc);
         else
-            this->turn(- calc);
+            this->driveGo(- calc);
         
         if(isHeading(deg))
         {
