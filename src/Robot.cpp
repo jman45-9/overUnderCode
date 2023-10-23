@@ -12,6 +12,8 @@ bool isAtDeg(double deg, Rotation sensor)
 }
 
 Robot::Robot(int *driveMotors, int intakeMotor, int puncherSensor) :
+        master(E_CONTROLLER_MASTER),
+        driveTrain(driveMotors, 3),
         intake(intakeMotor),
         puncherSensor(puncherSensor),
         puncher(6)
@@ -52,3 +54,16 @@ void Robot::firePuncher()
         this->puncherSensor.reset_position();
 }
 
+void driveControl()
+{
+    leftStick = this->master.getAnalog(ANALOG_LEFT_Y);
+    rightStick = this->master.getAnalog(ANALOG_RIGHT_Y);
+
+    this->driveTrain.topLeft.move(leftStick);
+    this->driveTrain.bottomLeft.move(leftStick);
+    this->driveTrain.centerLeft.move(leftStick);
+
+    this->topRight.move(rightStick);
+    this->bottomRight.move(rightStick);
+    this->centerRight.move(rightStick);
+}

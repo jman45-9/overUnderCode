@@ -92,5 +92,6 @@ void opcontrol() {
 	std::cout << "test 1" << '\n';
 	while (true) 
 	{
+        robot.driveControl
     }
 }

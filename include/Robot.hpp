@@ -16,6 +16,8 @@ bool isAtDeg(double deg, Rotation sensor);
 
 class Robot {
     public:
+        Controller master;
+        Drivetrain driveTrain;
         Motor intake;
         Motor puncher;
 
@@ -26,6 +28,7 @@ class Robot {
         Robot(int *driveMotors, int intakeMotor, int puncherSensor);
         void intakeToggle();
         void firePuncher();
+        void driveControl();
 };
 
 #endif //INCLUDE_ROBOT_H_
