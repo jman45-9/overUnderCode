@@ -20,12 +20,14 @@ class Robot {
         Motor puncher;
 
         Rotation puncherSensor;
-
+        ADIDigitalOut flicker;
+        bool flickerState = LOW;
         bool intakeOn;
 
         Robot(int *driveMotors, int intakeMotor, int puncherSensor);
         void intakeToggle();
         void firePuncher();
+        void fireFlicker();
 };
 
 #endif //INCLUDE_ROBOT_H_

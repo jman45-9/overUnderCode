@@ -14,7 +14,8 @@ bool isAtDeg(double deg, Rotation sensor)
 Robot::Robot(int *driveMotors, int intakeMotor, int puncherSensor) :
         intake(intakeMotor),
         puncherSensor(puncherSensor),
-        puncher(6)
+        puncher(6),
+        flicker('a', LOW)
 {
         this->intakeOn = 0;
         this->puncher.set_brake_mode(pros::E_MOTOR_BRAKE_BRAKE);
@@ -50,5 +51,11 @@ void Robot::firePuncher()
                 pros::delay(10);
         this->puncher.brake();
         this->puncherSensor.reset_position();
+}
+
+void Robot::fireFlicker()
+{
+    flickerState = !flickerState;
+    this->flicker.set_value(flickerState);
 }
 
