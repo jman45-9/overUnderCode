@@ -93,5 +93,6 @@ void opcontrol() {
             robot.fireFlicker();
         }
 
+        robot.driveControl();
     }
 }
