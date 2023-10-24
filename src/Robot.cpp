@@ -61,16 +61,16 @@ void Robot::fireFlicker()
     this->flicker.set_value(flickerState);
 }
 
-void driveControl()
+void Robot::driveControl()
 {
-    leftStick = this->master.getAnalog(ANALOG_LEFT_Y);
-    rightStick = this->master.getAnalog(ANALOG_RIGHT_Y);
+    double leftStick = this->master.get_analog(E_CONTROLLER_ANALOG_LEFT_Y);
+    double rightStick = this->master.get_analog(E_CONTROLLER_ANALOG_RIGHT_Y);
 
     this->driveTrain.topLeft.move(leftStick);
     this->driveTrain.bottomLeft.move(leftStick);
     this->driveTrain.centerLeft.move(leftStick);
 
-    this->topRight.move(rightStick);
-    this->bottomRight.move(rightStick);
-    this->centerRight.move(rightStick);
+    this->driveTrain.topRight.move(rightStick);
+    this->driveTrain.bottomRight.move(rightStick);
+    this->driveTrain.centerRight.move(rightStick);
 }

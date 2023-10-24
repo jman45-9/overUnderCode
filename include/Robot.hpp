@@ -17,7 +17,7 @@ bool isAtDeg(double deg, Rotation sensor);
 class Robot {
     public:
         Controller master;
-        Drivetrain driveTrain;
+        DriveTrain driveTrain;
         Motor intake;
         Motor puncher;
 
