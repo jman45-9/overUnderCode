@@ -2,10 +2,9 @@
 
 //topLeft, topRight, bottomLeft, bottomRight, centerLeft, centerRight
 
-//topLeft, topRight, bottomLeft, bottomRight, centerLeft, centerLeft 
-int motors[] = {20,11,18,13, 19, 12};
+int motors[] = {9,11,18,13, 19, 16};
 // motors, intake, puncher sensor
-Robot robot (motors, 7, 8);
+Robot robot (motors, 1, 8);
 
 /**
  * A callback function for LLEMU's center button.
@@ -86,12 +85,21 @@ void autonomous() {}
 void opcontrol() {
 	Controller master(E_CONTROLLER_MASTER);
 	Robot robot (motors, 7, 8);
+    bool flickerLatch = 0;
 	while (true) 
 	{
-        if(master.get_digital(E_CONTROLLER_DIGITAL_B))
+        if(master.get_digital(E_CONTROLLER_DIGITAL_A))
+        {
+            robot.firePuncher();
+            flickerLatch = 1;
+        }
+
+        if(master.get_digital(E_CONTROLLER_DIGITAL_B) && !flickerLatch)
         {
             robot.fireFlicker();
-        }
+            flickerLatch = 1;
+        } else if (!master.get_digital(E_CONTROLLER_DIGITAL_B))
+            flickerLatch = 0;
 
         robot.driveControl();
     }

@@ -16,12 +16,12 @@ Robot::Robot(int *driveMotors, int intakeMotor, int puncherSensor) :
         driveTrain(driveMotors, 3),
         intake(intakeMotor),
         puncherSensor(puncherSensor),
-        puncher(6),
+        puncher(7),
         flicker('a', LOW)
 {
         this->intakeOn = 0;
-        this->puncher.set_brake_mode(pros::E_MOTOR_BRAKE_BRAKE);
-        this->puncherSensor.set_reversed(1);
+        this->puncher.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
+        this->puncherSensor.set_reversed(0);
         std::cout << "test 2" << '\n';
         std::cout << this->puncherSensor.get_position() << '\n';
         this->puncherSensor.reset_position();
