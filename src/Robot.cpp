@@ -47,7 +47,7 @@ void Robot::firePuncher()
                 pros::delay(10);
         }
         this->puncher.brake();
-        pros::delay(1000);
+        pros::delay(100);
         this->puncher.move(127);
         while(!isAtDeg(360, this->puncherSensor))
                 pros::delay(10);
