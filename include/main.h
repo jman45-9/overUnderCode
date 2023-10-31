@@ -36,6 +36,7 @@
 
 #include "api.h"
 #include "Robot.hpp"
+#include "auton.hpp"
 
 /**
  * You should add more #includes here
@@ -81,6 +82,8 @@ void opcontrol(void);
 //#include <iostream>
 #endif
 
-// global variables
+// global variables//topLeft, topRight, bottomLeft, bottomRight, centerLeft, centerRight
+// motors, intake, puncher sensor
+extern Robot robot;
 
 #endif  // _PROS_MAIN_H_

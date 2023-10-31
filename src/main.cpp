@@ -1,12 +1,9 @@
 #include "main.h"
 
 //topLeft, topRight, bottomLeft, bottomRight, centerLeft, centerRight
-
-//topLeft, topRight, bottomLeft, bottomRight, centerLeft, centerLeft 
-int motors[] = {20,11,18,13, 19, 12};
+int driveMotors[] = {9,11,18,13, 19, 16};
 // motors, intake, puncher sensor
-Robot robot (motors, 7, 8);
-
+Robot robot(driveMotors, 1 , 8);
 /**
  * A callback function for LLEMU's center button.
  *
@@ -34,8 +31,8 @@ void initialize() {
 	pros::lcd::set_text(1, "Hello PROS User!");
 
 	pros::lcd::register_btn1_cb(on_center_button);
-}
 
+}
 /**
  * Runs while the robot is in the disabled state of Field Management System or
  * the VEX Competition Switch, following either autonomous or opcontrol. When
@@ -65,7 +62,10 @@ void competition_initialize() {}
  * will be stopped. Re-enabling the robot will restart the task, not re-start it
  * from where it left off.
  */
-void autonomous() {}
+void autonomous() 
+{
+    auton::basicPush();
+}
 
 /**
  * Runs the operator control code. This function will be started in its own task
@@ -85,13 +85,21 @@ void autonomous() {}
 
 void opcontrol() {
 	Controller master(E_CONTROLLER_MASTER);
-	Robot robot (motors, 7, 8);
+    bool flickerLatch = 0;
 	while (true) 
 	{
-        if(master.get_digital(E_CONTROLLER_DIGITAL_B))
+        if(master.get_digital(E_CONTROLLER_DIGITAL_A))
+        {
+            robot.firePuncher();
+            flickerLatch = 1;
+        }
+
+        if(master.get_digital(E_CONTROLLER_DIGITAL_B) && !flickerLatch)
         {
             robot.fireFlicker();
-        }
+            flickerLatch = 1;
+        } else if (!master.get_digital(E_CONTROLLER_DIGITAL_B))
+            flickerLatch = 0;
 
         robot.driveControl();
     }
