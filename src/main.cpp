@@ -1,6 +1,9 @@
 #include "main.h"
 
-
+//topLeft, topRight, bottomLeft, bottomRight, centerLeft, centerRight
+int driveMotors[] = {9,11,18,13, 19, 16};
+// motors, intake, puncher sensor
+Robot robot(driveMotors, 1 , 8);
 /**
  * A callback function for LLEMU's center button.
  *
@@ -30,7 +33,6 @@ void initialize() {
 	pros::lcd::register_btn1_cb(on_center_button);
 
 }
-extern Robot robot.robot(driveMotors, 1 , 8);
 /**
  * Runs while the robot is in the disabled state of Field Management System or
  * the VEX Competition Switch, following either autonomous or opcontrol. When

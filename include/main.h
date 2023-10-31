@@ -82,7 +82,6 @@ void opcontrol(void);
 #endif
 
 // global variables//topLeft, topRight, bottomLeft, bottomRight, centerLeft, centerRight
-int driveMotors[] = {9,11,18,13, 19, 16};
 // motors, intake, puncher sensor
 extern Robot robot;
 
