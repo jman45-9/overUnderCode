@@ -34,7 +34,7 @@ void initialize() {
 
 	pros::lcd::register_btn1_cb(on_center_button);
 }
-
+extern Robot robot.robot(driveMotors, 1 , 8);
 /**
  * Runs while the robot is in the disabled state of Field Management System or
  * the VEX Competition Switch, following either autonomous or opcontrol. When
@@ -84,7 +84,6 @@ void autonomous() {}
 
 void opcontrol() {
 	Controller master(E_CONTROLLER_MASTER);
-	Robot robot (motors, 7, 8);
     bool flickerLatch = 0;
 	while (true) 
 	{

@@ -81,6 +81,9 @@ void opcontrol(void);
 //#include <iostream>
 #endif
 
-// global variables
+// global variables//topLeft, topRight, bottomLeft, bottomRight, centerLeft, centerRight
+int driveMotors[] = {9,11,18,13, 19, 16};
+// motors, intake, puncher sensor
+extern Robot robot;
 
 #endif  // _PROS_MAIN_H_
