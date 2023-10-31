@@ -1,7 +1,7 @@
 #ifndef AUTON_HEADERPP_OVERUNDER
 #define AUTON_HEADERPP_OVERUNDER
 
-#include "main.hpp"
+#include "main.h"
 
 namespace auton
 {

@@ -1,10 +1,5 @@
 #include "main.h"
 
-//topLeft, topRight, bottomLeft, bottomRight, centerLeft, centerRight
-
-int motors[] = {9,11,18,13, 19, 16};
-// motors, intake, puncher sensor
-Robot robot (motors, 1, 8);
 
 /**
  * A callback function for LLEMU's center button.
@@ -33,6 +28,7 @@ void initialize() {
 	pros::lcd::set_text(1, "Hello PROS User!");
 
 	pros::lcd::register_btn1_cb(on_center_button);
+
 }
 extern Robot robot.robot(driveMotors, 1 , 8);
 /**
