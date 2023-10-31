@@ -36,6 +36,7 @@
 
 #include "api.h"
 #include "Robot.hpp"
+#include "auton.hpp"
 
 /**
  * You should add more #includes here

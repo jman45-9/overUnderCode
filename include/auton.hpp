@@ -5,6 +5,6 @@
 
 namespace auton
 {
-void push();
+void basicPush();
 }
 #endif //AUTON_HEADERPP_OVERUNDER
