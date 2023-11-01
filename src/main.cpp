@@ -1,4 +1,4 @@
-#include "main.h"
+#include "../include/main.h"
 
 //topLeft, topRight, bottomLeft, bottomRight, centerLeft, centerRight
 int driveMotors[] = {9,11,18,13, 19, 16};
