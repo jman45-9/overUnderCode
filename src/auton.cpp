@@ -2,6 +2,6 @@
 
 void auton::basicPush()
 {
-   robot.driveTrain.fwdAuton(2,0); 
+   robot.driveTrain.fwdAuton(20,0); 
 }
 
