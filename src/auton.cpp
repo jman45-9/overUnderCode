@@ -9,5 +9,6 @@ void basicFarside()
 {
     robot.firePuncher();
     robot.fireFlicker();
+    robot.driveTrain.fwdAuton(5,0);
     robot.driveTrain.autonTurn(120,1);
 }
