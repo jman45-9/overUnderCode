@@ -64,7 +64,7 @@ void competition_initialize() {}
  */
 void autonomous() 
 {
-    auton::basicPush();
+    auton::basicCloseSide();
 }
 
 /**

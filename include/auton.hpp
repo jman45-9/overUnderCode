@@ -5,6 +5,7 @@
 
 namespace auton
 {
-void basicPush();
+void basicCloseSide();
+void basicFarSide();
 }
 #endif //AUTON_HEADERPP_OVERUNDER
