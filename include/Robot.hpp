@@ -29,8 +29,11 @@ class Robot {
         Robot(int *driveMotors, int intakeMotor, int puncherSensor);
         void intakeToggle();
         void firePuncher();
+        void armPuncher();
         void fireFlicker();
         void driveControl();
+        void basicFwd();
+        void basicTurn();
 };
 
 #endif //INCLUDE_ROBOT_H_

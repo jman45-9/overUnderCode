@@ -64,7 +64,7 @@ void competition_initialize() {}
  */
 void autonomous() 
 {
-    auton::basicCloseSide();
+    auton::noPIDCloseSide();
 }
 
 /**
@@ -88,11 +88,14 @@ void opcontrol() {
     bool flickerLatch = 0;
 	while (true) 
 	{
+        robot.driveTrain.fwdAuton(24, 1);
         if(master.get_digital(E_CONTROLLER_DIGITAL_A))
         {
-            robot.firePuncher();
-            flickerLatch = 1;
+            robot.armPuncher();
         }
+
+        if (master.get_digital(E_CONTROLLER_DIGITAL_X))
+                robot.firePuncher();
 
         if(master.get_digital(E_CONTROLLER_DIGITAL_B) && !flickerLatch)
         {
@@ -101,6 +104,12 @@ void opcontrol() {
         } else if (!master.get_digital(E_CONTROLLER_DIGITAL_B))
             flickerLatch = 0;
 
-        robot.driveControl();
+        char tempMsg[30]; 
+        sprintf(tempMsg, "punchertemp: %f", robot.puncher.get_temperature());
+
+
+        pros::lcd::set_text(1, tempMsg);
+        
+
     }
 }

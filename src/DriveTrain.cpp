@@ -12,6 +12,7 @@ DriveTrain::DriveTrain(int *motors, int inertPort) :
     turnPID()
 {
     this->turnPID.kp=1;this->turnPID.ki=0;this->turnPID.kd=0;
+    this->fwdPID.kp=1000;this->fwdPID.ki=1000;this->fwdPID.kd=0;
 }
 
 void DriveTrain::driveGo(double power)
@@ -103,6 +104,7 @@ void DriveTrain::fwdAuton(double distance, bool fwd)
     while(true)
     {
         double calc = turnPID.pidCalc(distance, getDriveRotation() - initMtrRot);
+        std::cout << calc << '\n';
         if (fwd)
             this->driveGo(calc);
         else

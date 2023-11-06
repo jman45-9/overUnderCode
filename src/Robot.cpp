@@ -16,7 +16,7 @@ Robot::Robot(int *driveMotors, int intakeMotor, int puncherSensor) :
         driveTrain(driveMotors, 3),
         intake(intakeMotor),
         puncherSensor(puncherSensor),
-        puncher(7),
+        puncher(2),
         flicker('a', LOW)
 {
         this->intakeOn = 0;
@@ -38,21 +38,26 @@ void Robot::intakeToggle()
 
 void Robot::firePuncher()
 {
-        this->puncherSensor.reset_position();
-        this->puncher.move(127);
-        int counter = 0;
-        while(!isAtDeg(270, this->puncherSensor))
-        {
-                std::cout << this->puncherSensor.get_position();
-                pros::delay(10);
-        }
-        this->puncher.brake();
-        pros::delay(100);
-        this->puncher.move(127);
-        while(!isAtDeg(360, this->puncherSensor))
-                pros::delay(10);
-        this->puncher.brake();
-        this->puncherSensor.reset_position();
+    std::cout << "test\n";
+    
+    this->puncherSensor.reset_position();
+    this->puncher.move(127);
+    while(!isAtDeg(130, this->puncherSensor))
+            pros::delay(10);
+    this->puncher.brake();
+}
+
+void Robot::armPuncher()
+{
+    this->puncherSensor.reset_position();
+    this->puncher.move(127);
+    int counter = 0;
+    while(!isAtDeg(230, this->puncherSensor))
+    {
+            std::cout << this->puncherSensor.get_position();
+            pros::delay(10);
+    }
+    this->puncher.brake();
 }
 
 void Robot::fireFlicker()
@@ -73,4 +78,44 @@ void Robot::driveControl()
     this->driveTrain.topRight.move(rightStick);
     this->driveTrain.bottomRight.move(rightStick);
     this->driveTrain.centerRight.move(rightStick);
+}
+
+void Robot::basicFwd(double time, double power)
+{
+    this->driveTrain.topLeft.move(power);
+    this->driveTrain.bottomLeft.move(power);
+    this->driveTrain.centerLeft.move(power);
+
+    this->driveTrain.topRight.move(power);
+    this->driveTrain.bottomRight.move(power);
+    this->driveTrain.centerRight.move(power);
+    pros::delay(time * 1000);
+
+    this->driveTrain.topLeft.brake();
+    this->driveTrain.bottomLeft.brake();
+    this->driveTrain.centerLeft.brake();
+
+    this->driveTrain.topRight.brake();
+    this->driveTrain.bottomRight.brake();
+    this->driveTrain.centerRight.brake();
+}
+
+void Robot::basicTurn(double time, double power)
+{
+    this->driveTrain.topLeft.move(power);
+    this->driveTrain.bottomLeft.move(power);
+    this->driveTrain.centerLeft.move(power);
+
+    this->driveTrain.topRight.move(-power);
+    this->driveTrain.bottomRight.move(-power);
+    this->driveTrain.centerRight.move(-power);
+    pros::delay(time * 1000);
+
+    this->driveTrain.topLeft.brake();
+    this->driveTrain.bottomLeft.brake();
+    this->driveTrain.centerLeft.brake();
+
+    this->driveTrain.topRight.brake();
+    this->driveTrain.bottomRight.brake();
+    this->driveTrain.centerRight.brake();
 }

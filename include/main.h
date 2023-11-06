@@ -34,6 +34,8 @@
  */
 #define PROS_USE_LITERALS
 
+#include <stdio.h>
+
 #include "api.h"
 #include "Robot.hpp"
 #include "auton.hpp"

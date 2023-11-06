@@ -7,5 +7,7 @@ namespace auton
 {
 void basicCloseSide();
 void basicFarSide();
+void noPIDCloseSide();
+void noPIDFarside();
 }
 #endif //AUTON_HEADERPP_OVERUNDER
