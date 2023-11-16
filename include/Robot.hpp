@@ -31,9 +31,10 @@ class Robot {
         void firePuncher();
         void armPuncher();
         void fireFlicker();
-        void driveControl();
-        void basicFwd();
-        void basicTurn();
+        void driveControl(Controller);
+        void basicFwd(double, double);
+        void basicTurn(double, double);
+        void manualPuncher();
 };
 
 #endif //INCLUDE_ROBOT_H_

@@ -88,7 +88,6 @@ void opcontrol() {
     bool flickerLatch = 0;
 	while (true) 
 	{
-        robot.driveTrain.fwdAuton(24, 1);
         if(master.get_digital(E_CONTROLLER_DIGITAL_A))
         {
             robot.armPuncher();
@@ -103,6 +102,20 @@ void opcontrol() {
             flickerLatch = 1;
         } else if (!master.get_digital(E_CONTROLLER_DIGITAL_B))
             flickerLatch = 0;
+
+        if(master.get_digital(E_CONTROLLER_DIGITAL_L2))
+            robot.manualPuncher();
+        else
+            robot.puncher.brake();
+
+        if(master.get_digital(E_CONTROLLER_DIGITAL_R1))
+            robot.intake.move(127);
+        else if(master.get_digital(E_CONTROLLER_DIGITAL_R2))
+            robot.intake.move(-127);
+        else
+            robot.intake.brake();
+
+       robot.driveControl(master); 
 
         char tempMsg[30]; 
         sprintf(tempMsg, "punchertemp: %f", robot.puncher.get_temperature());
