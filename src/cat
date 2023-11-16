@@ -1,0 +1,249 @@
+commit ca32a6193407857c5dcf6e3cfbc2e5ef2722d009
+Author: jeremy <jcope0787@protonmail.com>
+Date:   Mon Oct 30 18:07:37 2023 -0700
+
+    added functions
+
+commit b1494fc7e966bdf5f64bc1598939c8d89b66c0a1
+Author: jeremy <jcope0787@protonmail.com>
+Date:   Mon Oct 30 17:51:26 2023 -0700
+
+    added header includes
+
+commit feb7b4fc2a0091e6e96bb6c8a145e812de8183e7
+Author: jeremy <jcope0787@protonmail.com>
+Date:   Mon Oct 30 17:36:14 2023 -0700
+
+    added auton.* files
+
+commit 4cfdbcd8f3554c87982e1ab1e599574e03b30dbc
+Author: jeremy <jcope0787@protonmail.com>
+Date:   Mon Oct 30 16:28:46 2023 -0700
+
+    reduced delay inbetween fire and reset
+
+commit 38e5c739f5b796de60861a80e61a203b5347ce1b
+Author: jeremy <jcope0787@protonmail.com>
+Date:   Sat Oct 28 10:05:06 2023 -0700
+
+    added flicker flip flop
+
+commit 17742cc032c88343695fa75dfe1f8f1dcff89bb5
+Author: jeremy <jcope0787@protonmail.com>
+Date:   Mon Oct 23 17:06:46 2023 -0700
+
+    fixed errs
+
+commit 7d2baa593f7af52b188d54e548d34fe8b4ba8d47
+Merge: f37cd24 00acf78
+Author: jeremy <jcope0787@protonmail.com>
+Date:   Mon Oct 23 16:32:09 2023 -0700
+
+    fixed conflicts
+
+commit 00acf787c6b64e14a19182a1e7161ac56a31924b
+Merge: ef3e2ca f61889b
+Author: jeremy <jcope0787@protonmail.com>
+Date:   Mon Oct 23 16:27:45 2023 -0700
+
+    Merge branch 'main' into driveTrain
+
+commit ef3e2ca2846c8e1bf055ead01af7066339f4ca10
+Author: jeremy <jcope0787@protonmail.com>
+Date:   Mon Oct 23 16:27:36 2023 -0700
+
+    done
+
+commit 4a9d07e8cbbd8498a0675faff867b19bb115fb18
+Author: jeremy <jcope0787@protonmail.com>
+Date:   Mon Oct 23 16:18:34 2023 -0700
+
+    added more
+
+commit f37cd24c3e8f3fa0a2c28bdf0d27da6fc1d34004
+Author: jeremy <jcope0787@protonmail.com>
+Date:   Mon Oct 23 15:41:13 2023 -0700
+
+    added prototype:
+
+commit f61889bc1da78ba5107fa8334c2e34d874675f3a
+Author: jeremy <jcope0787@protonmail.com>
+Date:   Wed Oct 18 19:22:10 2023 -0700
+
+    merged drive train
+
+commit 5f17cb99c1d8386128e74abed0490828f8045a29
+Merge: 7fbd1b3 f0c854b
+Author: jeremy <jcope0787@protonmail.com>
+Date:   Wed Oct 18 19:08:13 2023 -0700
+
+    more
+
+commit f0c854bc8b795af1eedfae27a4ed42f0d653afbb
+Author: jeremy <jcope0787@protonmail.com>
+Date:   Wed Oct 18 18:58:10 2023 -0700
+
+    print chack
+
+commit 7fbd1b3bd472d28e6f9e88c8eb2d078be642956b
+Author: jeremy <jcope0787@protonmail.com>
+Date:   Wed Oct 18 18:05:47 2023 -0700
+
+    more
+
+commit 1e399771cda1fe0eb3c6bb875974a33766904066
+Author: jeremy <jcope0787@protonmail.com>
+Date:   Tue Oct 17 14:27:17 2023 -0700
+
+    words
+
+commit 7ed7ea5c90c3202cb3ed88bf73b7f8c8253abdd9
+Author: jeremy <jcope0787@protonmail.com>
+Date:   Wed Oct 4 11:29:38 2023 -0700
+
+    more
+
+commit 9387ccb79be67e1390e5b182f9597e9ff02218e9
+Author: jeremy <jcope0787@protonmail.com>
+Date:   Wed Oct 4 11:02:43 2023 -0700
+
+    added more comments
+
+commit c939dab16d3139c32d93d88c5e2964f4725204b6
+Author: jeremy <jcope0787@protonmail.com>
+Date:   Wed Oct 4 10:20:58 2023 -0700
+
+    added turn pid
+
+commit 22c7aaa4749ce5da379fe4058451d952d8a916f3
+Author: jeremy <jcope0787@protonmail.com>
+Date:   Mon Oct 2 11:08:15 2023 -0700
+
+    added change of intake speed
+
+commit 209825d50a693fa3e92ba6cd76663bba6ef3a56c
+Author: jeremy <jcope0787@protonmail.com>
+Date:   Mon Oct 2 11:04:31 2023 -0700
+
+    added more code
+
+commit f2f857249841d4a6c40c006c9223ee00dd612d15
+Author: jeremy <jcope0787@protonmail.com>
+Date:   Wed Sep 27 19:45:53 2023 -0700
+
+    added more code)
+
+commit 932e034138bd5a84a2231d77f923206ce8dc93e7
+Author: jeremy <jcope0787@protonmail.com>
+Date:   Mon Sep 25 17:33:53 2023 -0700
+
+    restuctued pid obj
+
+commit 4b098363805031988ed7ef56a31e28d937216f40
+Author: jeremy <jcope0787@protonmail.com>
+Date:   Mon Sep 18 18:00:32 2023 -0700
+
+    added pid code
+
+commit 8d58f8f828893937dc02803ae028b7d7d4a2c314
+Author: Jeremy Cope <jeremy.cope7142@gmail.com>
+Date:   Mon Aug 28 17:06:20 2023 -0700
+
+    added puncher code
+
+commit 781aab49289c276dd2ae7ae8df79d2071bfc8d60
+Author: Jeremy Cope <jeremy.cope7142@gmail.com>
+Date:   Sat Aug 26 10:38:19 2023 -0700
+
+    see last
+
+commit efff15829bb6ba7766d7748cbfb24106db495d38
+Author: Jeremy Cope <jeremy.cope7142@gmail.com>
+Date:   Sat Aug 26 10:36:15 2023 -0700
+
+    added firePuncher
+
+commit 510ea4af1072059fbecdd32cb02c2a8a8d079840
+Author: Jeremy Cope <jeremy.cope7142@gmail.com>
+Date:   Sat Aug 26 10:25:32 2023 -0700
+
+    added isAtDegFunc
+
+commit 9ad23257eef26431335f38103fd8025495cc6131
+Author: Jeremy Cope <jeremy.cope7142@gmail.com>
+Date:   Mon Aug 21 17:53:10 2023 -0700
+
+    added rotation sensor
+
+commit 3280bfa4950bd4dbfd862d593cc92ba37102e11c
+Author: Jeremy Cope <jeremy.cope7142@gmail.com>
+Date:   Mon Aug 21 17:26:01 2023 -0700
+
+    added autonDrive
+
+commit 137c5b4a8b250772df1d0842e93e5fc7b51d5b0c
+Author: root <root@debianSchool.debian.local>
+Date:   Sat Aug 19 11:45:08 2023 -0700
+
+    added inToDeg
+
+commit 1f83271c59c7f5171c47c7b6de8616a4da60ab74
+Author: root <root@debianSchool.debian.local>
+Date:   Sat Aug 19 11:11:48 2023 -0700
+
+    added motor reversing
+
+commit be41400e99c252c12cede7b7ced9cb28c012ef3a
+Author: root <root@debianSchool.debian.local>
+Date:   Wed Aug 16 19:56:48 2023 -0700
+
+    added funstion and diamerter macros
+
+commit cb9e30699974b62ee9102248ea73207195729bcb
+Merge: cb9ce85 b4cd0f9
+Author: root <root@debianSchool.debian.local>
+Date:   Wed Aug 16 18:38:24 2023 -0700
+
+    Merge branch 'main' into autonDrive
+
+commit b4cd0f9d4aec8bd27f4f472739b95687065995f7
+Author: root <root@debianSchool.debian.local>
+Date:   Wed Aug 16 18:37:03 2023 -0700
+
+    made functions for driving certain sides of robot
+
+commit cb9ce8534af78c5b7b1d81416ef4711a859e1b2e
+Author: Jeremy Cope <jeremy.cope7142@gmail.com>
+Date:   Wed Aug 16 18:26:50 2023 -0700
+
+    added autonFuncs files
+
+commit 4b5af0527321ebf1e241d234659c8c16a5017eb0
+Author: root <root@debianSchool.debian.local>
+Date:   Mon Aug 14 17:37:07 2023 -0700
+
+    added intake toggle
+
+commit a9915536269804f2ba80b5f392cb99983cc861b6
+Author: Jeremy Cope <jeremy.cope7142@gmail.com>
+Date:   Mon Aug 14 17:16:27 2023 -0700
+
+    added intake motor to robot
+
+commit adc5dbbce6f4b3fde98da4ce92b3469f152b094e
+Author: Jeremy Cope <jeremy.cope7142@gmail.com>
+Date:   Mon Aug 14 16:42:33 2023 -0700
+
+    refactored code to follow best practices
+
+commit 4af7897e2265b93501f7cf2e562ca0c2ed081feb
+Author: root <root@debianSchool.debian.local>
+Date:   Sat Aug 12 11:25:54 2023 -0700
+
+    added middle wheel functionality
+
+commit 40862863db371904d58252195dfac36caaaa0c9a
+Author: Jeremy Cope <jeremy.cope7142@gmail.com>
+Date:   Sat Aug 12 11:00:10 2023 -0700
+
+    inital commit
