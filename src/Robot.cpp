@@ -15,8 +15,9 @@ Robot::Robot(int *driveMotors, int intakeMotor, int puncherSensor) :
         master(E_CONTROLLER_MASTER),
         driveTrain(driveMotors, 3),
         intake(intakeMotor),
-        puncherSensor(puncherSensor),
-        puncher(2),
+        fly1(6);
+        fly2(7);
+        flys({fly1,fly2});
         flicker('a', LOW)
 {
         this->intakeOn = 0;
@@ -36,29 +37,7 @@ void Robot::intakeToggle()
         this->intake.move((127*0.7) * intakeOn);
 }
 
-void Robot::firePuncher()
-{
-    std::cout << "test\n";
-    
-    this->puncherSensor.reset_position();
-    this->puncher.move(127);
-    while(!isAtDeg(130, this->puncherSensor))
-            pros::delay(10);
-    this->puncher.brake();
-}
 
-void Robot::armPuncher()
-{
-    this->puncherSensor.reset_position();
-    this->puncher.move(127);
-    int counter = 0;
-    while(!isAtDeg(230, this->puncherSensor))
-    {
-            std::cout << this->puncherSensor.get_position();
-            pros::delay(10);
-    }
-    this->puncher.brake();
-}
 
 void Robot::fireFlicker()
 {
@@ -101,7 +80,11 @@ void Robot::basicFwd(double time, double power)
     this->driveTrain.centerRight.brake();
 }
 
-void Robot::manualPuncher()
+void Robot::toggleFlys()
 {
-    this->puncher.move(80);
+    this->flysOn=!this->flysOn;
+    if(flysOn)
+        flys.move(127);
+    else
+        flys.brake();
 }

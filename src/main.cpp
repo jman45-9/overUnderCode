@@ -88,25 +88,14 @@ void opcontrol() {
     bool flickerLatch = 0;
 	while (true) 
 	{
-        if(master.get_digital(E_CONTROLLER_DIGITAL_A))
-        {
-            robot.armPuncher();
-        }
-
-        if (master.get_digital(E_CONTROLLER_DIGITAL_X))
-                robot.firePuncher();
-
+        if (master.get_digital(E_CONTROLLER_DIGITAL_L1)
+                robot.toggleFlys;
         if(master.get_digital(E_CONTROLLER_DIGITAL_B) && !flickerLatch)
         {
             robot.fireFlicker();
             flickerLatch = 1;
         } else if (!master.get_digital(E_CONTROLLER_DIGITAL_B))
             flickerLatch = 0;
-
-        if(master.get_digital(E_CONTROLLER_DIGITAL_L2))
-            robot.manualPuncher();
-        else
-            robot.puncher.brake();
 
         if(master.get_digital(E_CONTROLLER_DIGITAL_R1))
             robot.intake.move(127);

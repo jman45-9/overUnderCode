@@ -19,22 +19,21 @@ class Robot {
         Controller master;
         DriveTrain driveTrain;
         Motor intake;
-        Motor puncher;
-
-        Rotation puncherSensor;
+        Motor fly1;
+        Motor fly2;
+        Motor_Group flys;
         ADIDigitalOut flicker;
         bool flickerState = LOW;
         bool intakeOn;
+        bool flysOn;
 
         Robot(int *driveMotors, int intakeMotor, int puncherSensor);
         void intakeToggle();
-        void firePuncher();
-        void armPuncher();
         void fireFlicker();
         void driveControl(Controller);
         void basicFwd(double, double);
         void basicTurn(double, double);
-        void manualPuncher();
+        void toggleFlywheel();
 };
 
 #endif //INCLUDE_ROBOT_H_
