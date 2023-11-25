@@ -88,8 +88,8 @@ void opcontrol() {
     bool flickerLatch = 0;
 	while (true) 
 	{
-        if (master.get_digital(E_CONTROLLER_DIGITAL_L1)
-                robot.toggleFlys;
+        if (master.get_digital(E_CONTROLLER_DIGITAL_L1))
+                robot.toggleFlys();
         if(master.get_digital(E_CONTROLLER_DIGITAL_B) && !flickerLatch)
         {
             robot.fireFlicker();
@@ -107,7 +107,7 @@ void opcontrol() {
        robot.driveControl(master); 
 
         char tempMsg[30]; 
-        sprintf(tempMsg, "punchertemp: %f", robot.puncher.get_temperature());
+        //sprintf(tempMsg, "punchertemp: %f", robot.puncher.get_temperature());
 
 
         pros::lcd::set_text(1, tempMsg);

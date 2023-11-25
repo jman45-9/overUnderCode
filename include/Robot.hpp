@@ -33,7 +33,7 @@ class Robot {
         void driveControl(Controller);
         void basicFwd(double, double);
         void basicTurn(double, double);
-        void toggleFlywheel();
+        void toggleFlys();
 };
 
 #endif //INCLUDE_ROBOT_H_
