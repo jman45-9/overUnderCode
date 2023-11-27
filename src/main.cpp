@@ -1,7 +1,7 @@
 #include "../include/main.h"
 
 //topLeft, topRight, bottomLeft, bottomRight, centerLeft, centerRight
-int driveMotors[] = {15,18,13, 19, 16};
+int driveMotors[] = {12,19,13,18,6,11};
 // motors, intake, puncher sensor
 Robot robot(driveMotors,1);
 /**

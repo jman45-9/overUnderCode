@@ -15,8 +15,8 @@ Robot::Robot(int *driveMotors, int intakeMotor) :
         master(E_CONTROLLER_MASTER),
         driveTrain(driveMotors, 3),
         intake(intakeMotor),
-        fly1(15);
-        fly2(7),
+        fly1(15),
+        fly2(-16),
         flys({fly1,fly2}),
         flicker('a', LOW)
 {
