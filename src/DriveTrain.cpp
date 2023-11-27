@@ -5,6 +5,8 @@ DriveTrain::DriveTrain(int *motors, int inertPort) :
     topRight (*(motors + 1), E_MOTOR_GEAR_GREEN, 1, E_MOTOR_ENCODER_DEGREES),
     bottomLeft (*(motors + 2),E_MOTOR_GEAR_GREEN, 0, E_MOTOR_ENCODER_DEGREES),
     bottomRight (*(motors + 3), E_MOTOR_GEAR_GREEN, 1, E_MOTOR_ENCODER_DEGREES),
+    centerLeft (*(motors + 4), E_MOTOR_GEAR_GREEN, 1, E_MOTOR_ENCODER_DEGREES),
+    centerRight(*(motors + 5), E_MOTOR_GEAR_GREEN, 0, E_MOTOR_ENCODER_DEGREES),
     inertSen(inertPort),
     fwdPID(),
     turnPID()
@@ -18,9 +20,11 @@ void DriveTrain::driveGo(double power)
 
         this->topLeft.move(power);
         this->bottomLeft.move(power);
+        this->centerLeft.move(power);
 
         this->topRight.move(power);
         this->bottomRight.move(power);
+        this->centerRight.move(power);
 }
 
 
@@ -30,18 +34,22 @@ void DriveTrain::turn(double power)
 {
     this->topLeft.move(power);
     this->bottomLeft.move(power);
+    this->centerLeft.move(power);
 
     this->topRight.move(- power);
     this->bottomRight.move(- power);
+    this->centerRight.move(- power);
 }
 
 void DriveTrain::brake()
 {
     this->topLeft.brake();
     this->bottomLeft.brake();
+    this->centerLeft.brake();
 
     this->topRight.brake();
     this->bottomRight.brake();
+    this->centerRight.brake();
 }
 
 bool DriveTrain::isHeading(double target)
@@ -52,11 +60,12 @@ bool DriveTrain::isHeading(double target)
 
 double DriveTrain::getDriveRotation()
 {
-    double totRot = 
-    this->topLeft.get_position() +
+    double totRot = this->topLeft.get_position() +
     this->bottomLeft.get_position() +
+    this->centerLeft.get_position() +
     this->topRight.get_position() +
-    this->bottomRight.get_position();
+    this->bottomRight.get_position() +
+    this->centerRight.get_position();
 
     return totRot / 6;
 }

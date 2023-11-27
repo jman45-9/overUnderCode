@@ -27,7 +27,7 @@ class Robot {
         bool intakeOn;
         bool flysOn;
 
-        Robot(int *driveMotors, int intakeMotor, int puncherSensor);
+        Robot(int *driveMotors, int intakeMotor);
         void intakeToggle();
         void fireFlicker();
         void driveControl(Controller);

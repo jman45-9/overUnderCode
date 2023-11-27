@@ -16,6 +16,8 @@ class DriveTrain
         Motor topRight;
         Motor bottomLeft;
         Motor bottomRight;
+        Motor centerLeft;
+        Motor centerRight;
         Imu inertSen;
 
         PID::PID_OBJ fwdPID;

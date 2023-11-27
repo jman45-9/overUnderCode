@@ -1,9 +1,9 @@
 #include "../include/main.h"
 
 //topLeft, topRight, bottomLeft, bottomRight, centerLeft, centerRight
-int driveMotors[] = {9,11,18,13, 19, 16};
+int driveMotors[] = {15,18,13, 19, 16};
 // motors, intake, puncher sensor
-Robot robot(driveMotors, 1 , 8);
+Robot robot(driveMotors,1);
 /**
  * A callback function for LLEMU's center button.
  *
@@ -106,12 +106,10 @@ void opcontrol() {
 
        robot.driveControl(master); 
 
+       /*
         char tempMsg[30]; 
-        //sprintf(tempMsg, "punchertemp: %f", robot.puncher.get_temperature());
-
-
+        sprintf(tempMsg, "punchertemp: %f", robot.puncher.get_temperature());
         pros::lcd::set_text(1, tempMsg);
-        
-
+        */
     }
 }
