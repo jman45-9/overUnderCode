@@ -41,8 +41,8 @@ void Robot::fireFlicker()
 
 void Robot::driveControl(Controller master)
 {
-    double leftStick = master.get_analog(E_CONTROLLER_ANALOG_LEFT_Y);
-    double rightStick = master.get_analog(E_CONTROLLER_ANALOG_RIGHT_Y);
+    double leftStick = master.get_analog(E_CONTROLLER_ANALOG_RIGHT_Y);
+    double rightStick = master.get_analog(E_CONTROLLER_ANALOG_LEFT_Y);
 
     this->driveTrain.topLeft.move(leftStick);
     this->driveTrain.bottomLeft.move(leftStick);

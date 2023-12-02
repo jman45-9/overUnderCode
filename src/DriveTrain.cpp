@@ -3,10 +3,10 @@
 DriveTrain::DriveTrain(int *motors, int inertPort) :
     topLeft (*motors, E_MOTOR_GEAR_GREEN, 0, E_MOTOR_ENCODER_DEGREES),
     topRight (*(motors + 1), E_MOTOR_GEAR_GREEN, 1, E_MOTOR_ENCODER_DEGREES),
-    bottomLeft (*(motors + 2),E_MOTOR_GEAR_GREEN, 0, E_MOTOR_ENCODER_DEGREES),
-    bottomRight (*(motors + 3), E_MOTOR_GEAR_GREEN, 1, E_MOTOR_ENCODER_DEGREES),
-    centerLeft (*(motors + 4), E_MOTOR_GEAR_GREEN, 1, E_MOTOR_ENCODER_DEGREES),
-    centerRight(*(motors + 5), E_MOTOR_GEAR_GREEN, 0, E_MOTOR_ENCODER_DEGREES),
+    bottomLeft (*(motors + 2),E_MOTOR_GEAR_GREEN, 1, E_MOTOR_ENCODER_DEGREES),
+    bottomRight (*(motors + 3), E_MOTOR_GEAR_GREEN, 0, E_MOTOR_ENCODER_DEGREES),
+    centerLeft (*(motors + 4), E_MOTOR_GEAR_GREEN, 0, E_MOTOR_ENCODER_DEGREES),
+    centerRight(*(motors + 5), E_MOTOR_GEAR_GREEN, 1, E_MOTOR_ENCODER_DEGREES),
     inertSen(inertPort),
     fwdPID(),
     turnPID()

@@ -15,7 +15,7 @@ void auton::basicFarside()
 
 void auton::noPIDCloseSide()
 {
-    robot.basicFwd(1.0, -127.0);
+    robot.basicFwd(0.750, 127.0);
 }
 
 void auton::noPIDFarside()
