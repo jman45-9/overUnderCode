@@ -15,7 +15,7 @@ void auton::basicFarside()
 
 void auton::noPIDCloseSide()
 {
-    robot.basicFwd(0.750, 127.0);
+    robot.basicFwd(1.250, -127.0);
 }
 
 void auton::noPIDFarside()
@@ -24,3 +24,17 @@ void auton::noPIDFarside()
     robot.driveTrain.fwdAuton(0.25, -127.0);
     robot.driveTrain.turnAuton(1.0, 127.0);
 }
+
+void auton::goodAuton()
+{
+    robot.basicFwd(1.250, -127.0);
+    robot.basicFwd(0.250,127);
+    robot.driveTrain.turn(-127);
+    delay(250);
+    robot.driveTrain.brake();
+    robot.basicFwd(1.250,-127.0);
+    robot.fireFlicker();
+    robot.basicFwd(1.250,-127.0);
+
+}
+

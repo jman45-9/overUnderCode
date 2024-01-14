@@ -1,7 +1,8 @@
 #include "../include/main.h"
 
 //topLeft, topRight, bottomLeft, bottomRight, centerLeft, centerRight
-int driveMotors[] = {12,19,13,18,6,11};
+int driveMotors[] = {-2,12,-10,18,-9,19};
+
 // motors, intake, puncher sensor
 Robot robot(driveMotors,1);
 /**
@@ -64,7 +65,7 @@ void competition_initialize() {}
  */
 void autonomous() 
 {
-    auton::noPIDCloseSide();
+    auton::goodAuton();
 }
 
 /**

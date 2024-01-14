@@ -2,17 +2,23 @@
 
 DriveTrain::DriveTrain(int *motors, int inertPort) :
     topLeft (*motors, E_MOTOR_GEAR_GREEN, 0, E_MOTOR_ENCODER_DEGREES),
-    topRight (*(motors + 1), E_MOTOR_GEAR_GREEN, 1, E_MOTOR_ENCODER_DEGREES),
-    bottomLeft (*(motors + 2),E_MOTOR_GEAR_GREEN, 1, E_MOTOR_ENCODER_DEGREES),
+    topRight (*(motors + 1), E_MOTOR_GEAR_GREEN, 0, E_MOTOR_ENCODER_DEGREES),
+    bottomLeft (*(motors + 2),E_MOTOR_GEAR_GREEN, 0, E_MOTOR_ENCODER_DEGREES),
     bottomRight (*(motors + 3), E_MOTOR_GEAR_GREEN, 0, E_MOTOR_ENCODER_DEGREES),
     centerLeft (*(motors + 4), E_MOTOR_GEAR_GREEN, 0, E_MOTOR_ENCODER_DEGREES),
-    centerRight(*(motors + 5), E_MOTOR_GEAR_GREEN, 1, E_MOTOR_ENCODER_DEGREES),
+    centerRight(*(motors + 5), E_MOTOR_GEAR_GREEN, 0, E_MOTOR_ENCODER_DEGREES),
     inertSen(inertPort),
     fwdPID(),
     turnPID()
 {
     this->turnPID.kp=1;this->turnPID.ki=0;this->turnPID.kd=0;
     this->fwdPID.kp=1000;this->fwdPID.ki=1000;this->fwdPID.kd=0;
+    topLeft.set_brake_mode(E_MOTOR_BRAKE_BRAKE);
+    topRight.set_brake_mode(E_MOTOR_BRAKE_BRAKE);
+    bottomLeft.set_brake_mode(E_MOTOR_BRAKE_BRAKE);
+    bottomRight.set_brake_mode(E_MOTOR_BRAKE_BRAKE);
+    centerLeft.set_brake_mode(E_MOTOR_BRAKE_BRAKE);
+    centerRight.set_brake_mode(E_MOTOR_BRAKE_BRAKE);
 }
 
 void DriveTrain::driveGo(double power)
