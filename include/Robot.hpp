@@ -23,6 +23,7 @@ class Robot {
         Motor fly2;
         Motor_Group flys;
         ADIDigitalOut flicker;
+        ADIDigitalOut flicker2;
         bool flickerState = LOW;
         bool intakeOn;
         bool flysOn;

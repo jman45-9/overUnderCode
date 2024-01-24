@@ -18,7 +18,8 @@ Robot::Robot(int *driveMotors, int intakeMotor) :
         fly1(3),
         fly2(-13),
         flys({fly1,fly2}),
-        flicker('a', LOW)
+        flicker('a', LOW),
+        flicker2('b',LOW)
 {
         this->intakeOn = 0;
 }
@@ -37,6 +38,7 @@ void Robot::fireFlicker()
 {
     flickerState = !flickerState;
     this->flicker.set_value(flickerState);
+    this->flicker2.set_value(flickerState);
 }
 
 void Robot::driveControl(Controller master)
