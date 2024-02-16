@@ -13,6 +13,7 @@ using namespace pros::literals;
 
 double inToDeg(double in, double wheelCir);
 bool isAtDeg(double deg, Rotation sensor);
+int sign(double input);
 
 class Robot {
     public:
@@ -24,6 +25,7 @@ class Robot {
         Motor_Group flys;
         ADIDigitalOut flicker;
         ADIDigitalOut flicker2;
+        ADIDigitalOut endFlicker;
         bool flickerState = LOW;
         bool intakeOn;
         bool flysOn;

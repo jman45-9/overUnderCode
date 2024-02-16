@@ -21,8 +21,6 @@ void auton::noPIDCloseSide()
 void auton::noPIDFarside()
 {
     robot.fireFlicker();
-    robot.driveTrain.fwdAuton(0.25, -127.0);
-    robot.driveTrain.turnAuton(1.0, 127.0);
 }
 
 void auton::goodAuton()

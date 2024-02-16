@@ -34,6 +34,7 @@ class DriveTrain
 
         //turn funcs
         void turnAuton(double deg, bool left);
-        void fwdAuton(double distance, bool fwd);
+        void fwdAuton(double distance);
+        void mathFwd(double distance);
 };
 #endif //DRIVE_TRAIN_OBJ_HEAD

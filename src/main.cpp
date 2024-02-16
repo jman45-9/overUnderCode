@@ -65,7 +65,16 @@ void competition_initialize() {}
  */
 void autonomous() 
 {
-    auton::noPIDCloseSide();
+    robot.driveTrain.mathFwd(17);
+    pros::delay(1.8 * 1000);
+    robot.driveTrain.turnAuton(-90, 0);
+    robot.intake.move(100);
+    robot.driveTrain.mathFwd(-5);
+    pros::delay(0.4*1000);
+    robot.intake.brake();
+    robot.driveTrain.turnAuton(180, 0);
+    robot.driveTrain.mathFwd(-7.8);
+    pros::lcd::set_text(1, "done");
 }
 
 /**
@@ -81,6 +90,7 @@ void autonomous()
  * operator control task will be stopped. Re-enabling the robot will restart the
  * task, not resume it from where it left off.
  */
+
 
 
 
@@ -104,6 +114,10 @@ void opcontrol() {
             robot.intake.move(-127);
         else
             robot.intake.brake();
+
+        if (master.get_digital(E_CONTROLLER_DIGITAL_LEFT))
+                robot.endFlicker.set_value(HIGH);
+
 
        robot.driveControl(master); 
 

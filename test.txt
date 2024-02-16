@@ -1,0 +1,1687 @@
+#include "../include/auton.hpp"
+
+/*void auton::basicCloseSide()
+{
+   robot.driveTrain.fwdAuton(20,0); 
+}
+
+void auton::basicFarside()
+{
+    robot.firePuncher();
+    robot.fireFlicker();
+    robot.driveTrain.fwdAuton(5,0);
+    robot.driveTrain.turnAuton(120,1);
+}*/
+
+void auton::noPIDCloseSide()
+{
+    robot.basicFwd(1.250, -127.0);
+}
+
+void auton::noPIDFarside()
+{
+    robot.fireFlicker();
+    robot.driveTrain.fwdAuton(0.25, -127.0);
+    robot.driveTrain.turnAuton(1.0, 127.0);
+}
+
+void auton::goodAuton()
+{
+    robot.basicFwd(1.250, -127.0);
+    robot.basicFwd(0.250,127);
+    robot.driveTrain.turn(-127);
+    delay(250);
+    robot.driveTrain.brake();
+    robot.basicFwd(1.250,-127.0);
+    robot.fireFlicker();
+    robot.basicFwd(1.250,-127.0);
+
+}
+
+commit ca32a6193407857c5dcf6e3cfbc2e5ef2722d009
+Author: jeremy <jcope0787@protonmail.com>
+Date:   Mon Oct 30 18:07:37 2023 -0700
+
+    added functions
+
+commit b1494fc7e966bdf5f64bc1598939c8d89b66c0a1
+Author: jeremy <jcope0787@protonmail.com>
+Date:   Mon Oct 30 17:51:26 2023 -0700
+
+    added header includes
+
+commit feb7b4fc2a0091e6e96bb6c8a145e812de8183e7
+Author: jeremy <jcope0787@protonmail.com>
+Date:   Mon Oct 30 17:36:14 2023 -0700
+
+    added auton.* files
+
+commit 4cfdbcd8f3554c87982e1ab1e599574e03b30dbc
+Author: jeremy <jcope0787@protonmail.com>
+Date:   Mon Oct 30 16:28:46 2023 -0700
+
+    reduced delay inbetween fire and reset
+
+commit 38e5c739f5b796de60861a80e61a203b5347ce1b
+Author: jeremy <jcope0787@protonmail.com>
+Date:   Sat Oct 28 10:05:06 2023 -0700
+
+    added flicker flip flop
+
+commit 17742cc032c88343695fa75dfe1f8f1dcff89bb5
+Author: jeremy <jcope0787@protonmail.com>
+Date:   Mon Oct 23 17:06:46 2023 -0700
+
+    fixed errs
+
+commit 7d2baa593f7af52b188d54e548d34fe8b4ba8d47
+Merge: f37cd24 00acf78
+Author: jeremy <jcope0787@protonmail.com>
+Date:   Mon Oct 23 16:32:09 2023 -0700
+
+    fixed conflicts
+
+commit 00acf787c6b64e14a19182a1e7161ac56a31924b
+Merge: ef3e2ca f61889b
+Author: jeremy <jcope0787@protonmail.com>
+Date:   Mon Oct 23 16:27:45 2023 -0700
+
+    Merge branch 'main' into driveTrain
+
+commit ef3e2ca2846c8e1bf055ead01af7066339f4ca10
+Author: jeremy <jcope0787@protonmail.com>
+Date:   Mon Oct 23 16:27:36 2023 -0700
+
+    done
+
+commit 4a9d07e8cbbd8498a0675faff867b19bb115fb18
+Author: jeremy <jcope0787@protonmail.com>
+Date:   Mon Oct 23 16:18:34 2023 -0700
+
+    added more
+
+commit f37cd24c3e8f3fa0a2c28bdf0d27da6fc1d34004
+Author: jeremy <jcope0787@protonmail.com>
+Date:   Mon Oct 23 15:41:13 2023 -0700
+
+    added prototype:
+
+commit f61889bc1da78ba5107fa8334c2e34d874675f3a
+Author: jeremy <jcope0787@protonmail.com>
+Date:   Wed Oct 18 19:22:10 2023 -0700
+
+    merged drive train
+
+commit 5f17cb99c1d8386128e74abed0490828f8045a29
+Merge: 7fbd1b3 f0c854b
+Author: jeremy <jcope0787@protonmail.com>
+Date:   Wed Oct 18 19:08:13 2023 -0700
+
+    more
+
+commit f0c854bc8b795af1eedfae27a4ed42f0d653afbb
+Author: jeremy <jcope0787@protonmail.com>
+Date:   Wed Oct 18 18:58:10 2023 -0700
+
+    print chack
+
+commit 7fbd1b3bd472d28e6f9e88c8eb2d078be642956b
+Author: jeremy <jcope0787@protonmail.com>
+Date:   Wed Oct 18 18:05:47 2023 -0700
+
+    more
+
+commit 1e399771cda1fe0eb3c6bb875974a33766904066
+Author: jeremy <jcope0787@protonmail.com>
+Date:   Tue Oct 17 14:27:17 2023 -0700
+
+    words
+
+commit 7ed7ea5c90c3202cb3ed88bf73b7f8c8253abdd9
+Author: jeremy <jcope0787@protonmail.com>
+Date:   Wed Oct 4 11:29:38 2023 -0700
+
+    more
+
+commit 9387ccb79be67e1390e5b182f9597e9ff02218e9
+Author: jeremy <jcope0787@protonmail.com>
+Date:   Wed Oct 4 11:02:43 2023 -0700
+
+    added more comments
+
+commit c939dab16d3139c32d93d88c5e2964f4725204b6
+Author: jeremy <jcope0787@protonmail.com>
+Date:   Wed Oct 4 10:20:58 2023 -0700
+
+    added turn pid
+
+commit 22c7aaa4749ce5da379fe4058451d952d8a916f3
+Author: jeremy <jcope0787@protonmail.com>
+Date:   Mon Oct 2 11:08:15 2023 -0700
+
+    added change of intake speed
+
+commit 209825d50a693fa3e92ba6cd76663bba6ef3a56c
+Author: jeremy <jcope0787@protonmail.com>
+Date:   Mon Oct 2 11:04:31 2023 -0700
+
+    added more code
+
+commit f2f857249841d4a6c40c006c9223ee00dd612d15
+Author: jeremy <jcope0787@protonmail.com>
+Date:   Wed Sep 27 19:45:53 2023 -0700
+
+    added more code)
+
+commit 932e034138bd5a84a2231d77f923206ce8dc93e7
+Author: jeremy <jcope0787@protonmail.com>
+Date:   Mon Sep 25 17:33:53 2023 -0700
+
+    restuctued pid obj
+
+commit 4b098363805031988ed7ef56a31e28d937216f40
+Author: jeremy <jcope0787@protonmail.com>
+Date:   Mon Sep 18 18:00:32 2023 -0700
+
+    added pid code
+
+commit 8d58f8f828893937dc02803ae028b7d7d4a2c314
+Author: Jeremy Cope <jeremy.cope7142@gmail.com>
+Date:   Mon Aug 28 17:06:20 2023 -0700
+
+    added puncher code
+
+commit 781aab49289c276dd2ae7ae8df79d2071bfc8d60
+Author: Jeremy Cope <jeremy.cope7142@gmail.com>
+Date:   Sat Aug 26 10:38:19 2023 -0700
+
+    see last
+
+commit efff15829bb6ba7766d7748cbfb24106db495d38
+Author: Jeremy Cope <jeremy.cope7142@gmail.com>
+Date:   Sat Aug 26 10:36:15 2023 -0700
+
+    added firePuncher
+
+commit 510ea4af1072059fbecdd32cb02c2a8a8d079840
+Author: Jeremy Cope <jeremy.cope7142@gmail.com>
+Date:   Sat Aug 26 10:25:32 2023 -0700
+
+    added isAtDegFunc
+
+commit 9ad23257eef26431335f38103fd8025495cc6131
+Author: Jeremy Cope <jeremy.cope7142@gmail.com>
+Date:   Mon Aug 21 17:53:10 2023 -0700
+
+    added rotation sensor
+
+commit 3280bfa4950bd4dbfd862d593cc92ba37102e11c
+Author: Jeremy Cope <jeremy.cope7142@gmail.com>
+Date:   Mon Aug 21 17:26:01 2023 -0700
+
+    added autonDrive
+
+commit 137c5b4a8b250772df1d0842e93e5fc7b51d5b0c
+Author: root <root@debianSchool.debian.local>
+Date:   Sat Aug 19 11:45:08 2023 -0700
+
+    added inToDeg
+
+commit 1f83271c59c7f5171c47c7b6de8616a4da60ab74
+Author: root <root@debianSchool.debian.local>
+Date:   Sat Aug 19 11:11:48 2023 -0700
+
+    added motor reversing
+
+commit be41400e99c252c12cede7b7ced9cb28c012ef3a
+Author: root <root@debianSchool.debian.local>
+Date:   Wed Aug 16 19:56:48 2023 -0700
+
+    added funstion and diamerter macros
+
+commit cb9e30699974b62ee9102248ea73207195729bcb
+Merge: cb9ce85 b4cd0f9
+Author: root <root@debianSchool.debian.local>
+Date:   Wed Aug 16 18:38:24 2023 -0700
+
+    Merge branch 'main' into autonDrive
+
+commit b4cd0f9d4aec8bd27f4f472739b95687065995f7
+Author: root <root@debianSchool.debian.local>
+Date:   Wed Aug 16 18:37:03 2023 -0700
+
+    made functions for driving certain sides of robot
+
+commit cb9ce8534af78c5b7b1d81416ef4711a859e1b2e
+Author: Jeremy Cope <jeremy.cope7142@gmail.com>
+Date:   Wed Aug 16 18:26:50 2023 -0700
+
+    added autonFuncs files
+
+commit 4b5af0527321ebf1e241d234659c8c16a5017eb0
+Author: root <root@debianSchool.debian.local>
+Date:   Mon Aug 14 17:37:07 2023 -0700
+
+    added intake toggle
+
+commit a9915536269804f2ba80b5f392cb99983cc861b6
+Author: Jeremy Cope <jeremy.cope7142@gmail.com>
+Date:   Mon Aug 14 17:16:27 2023 -0700
+
+    added intake motor to robot
+
+commit adc5dbbce6f4b3fde98da4ce92b3469f152b094e
+Author: Jeremy Cope <jeremy.cope7142@gmail.com>
+Date:   Mon Aug 14 16:42:33 2023 -0700
+
+    refactored code to follow best practices
+
+commit 4af7897e2265b93501f7cf2e562ca0c2ed081feb
+Author: root <root@debianSchool.debian.local>
+Date:   Sat Aug 12 11:25:54 2023 -0700
+
+    added middle wheel functionality
+
+commit 40862863db371904d58252195dfac36caaaa0c9a
+Author: Jeremy Cope <jeremy.cope7142@gmail.com>
+Date:   Sat Aug 12 11:00:10 2023 -0700
+
+    inital commit
+ARCHTUPLE=arm-none-eabi-
+DEVICE=VEX EDR V5
+
+MFLAGS=-mcpu=cortex-a9 -mfpu=neon-fp16 -mfloat-abi=softfp -Os -g
+CPPFLAGS=-D_POSIX_THREADS -D_UNIX98_THREAD_MUTEX_ATTRIBUTES -D_POSIX_TIMERS -D_POSIX_MONOTONIC_CLOCK
+GCCFLAGS=-ffunction-sections -fdata-sections -fdiagnostics-color -funwind-tables
+
+WARNFLAGS+=-Wno-psabi
+
+SPACE := $() $()
+COMMA := ,
+
+DEPDIR := .d
+$(shell mkdir -p $(DEPDIR))
+DEPFLAGS = -MT $$@ -MMD -MP -MF $(DEPDIR)/$$*.Td
+MAKEDEPFOLDER = -$(VV)mkdir -p $(DEPDIR)/$$(dir $$(patsubst $(BINDIR)/%, %, $(ROOT)/$$@))
+RENAMEDEPENDENCYFILE = -$(VV)mv -f $(DEPDIR)/$$*.Td $$(patsubst $(SRCDIR)/%, $(DEPDIR)/%.d, $(ROOT)/$$<) && touch $$@
+
+LIBRARIES+=$(wildcard $(FWDIR)/*.a)
+# Cannot include newlib and libc because not all of the req'd stubs are implemented
+EXCLUDE_COLD_LIBRARIES+=$(FWDIR)/libc.a $(FWDIR)/libm.a
+COLD_LIBRARIES=$(filter-out $(EXCLUDE_COLD_LIBRARIES), $(LIBRARIES))
+wlprefix=-Wl,$(subst $(SPACE),$(COMMA),$1)
+LNK_FLAGS=--gc-sections --start-group $(strip $(LIBRARIES)) -lgcc -lstdc++ --end-group -T$(FWDIR)/v5-common.ld
+
+ASMFLAGS=$(MFLAGS) $(WARNFLAGS)
+CFLAGS=$(MFLAGS) $(CPPFLAGS) $(WARNFLAGS) $(GCCFLAGS) --std=gnu11
+CXXFLAGS=$(MFLAGS) $(CPPFLAGS) $(WARNFLAGS) $(GCCFLAGS) --std=gnu++17
+LDFLAGS=$(MFLAGS) $(WARNFLAGS) -nostdlib $(GCCFLAGS)
+SIZEFLAGS=-d --common
+NUMFMTFLAGS=--to=iec --format %.2f --suffix=B
+
+AR:=$(ARCHTUPLE)ar
+# using arm-none-eabi-as generates a listing by default. This produces a super verbose output.
+# Using gcc accomplishes the same thing without the extra output
+AS:=$(ARCHTUPLE)gcc
+CC:=$(ARCHTUPLE)gcc
+CXX:=$(ARCHTUPLE)g++
+LD:=$(ARCHTUPLE)g++
+OBJCOPY:=$(ARCHTUPLE)objcopy
+SIZETOOL:=$(ARCHTUPLE)size
+READELF:=$(ARCHTUPLE)readelf
+STRIP:=$(ARCHTUPLE)strip
+
+ifneq (, $(shell command -v gnumfmt 2> /dev/null))
+	SIZES_NUMFMT:=| gnumfmt --field=-4 --header $(NUMFMTFLAGS)
+else
+ifneq (, $(shell command -v numfmt 2> /dev/null))
+	SIZES_NUMFMT:=| numfmt --field=-4 --header $(NUMFMTFLAGS)
+else
+	SIZES_NUMFMT:=
+endif
+endif
+
+ifneq (, $(shell command -v sed 2> /dev/null))
+SIZES_SED:=| sed -e 's/  dec/total/'
+else
+SIZES_SED:=
+endif
+
+rwildcard=$(foreach d,$(filter-out $3,$(wildcard $1*)),$(call rwildcard,$d/,$2,$3)$(filter $(subst *,%,$2),$d))
+
+# Colors
+NO_COLOR=$(shell printf "%b" "\033[0m")
+OK_COLOR=$(shell printf "%b" "\033[32;01m")
+ERROR_COLOR=$(shell printf "%b" "\033[31;01m")
+WARN_COLOR=$(shell printf "%b" "\033[33;01m")
+STEP_COLOR=$(shell printf "%b" "\033[37;01m")
+OK_STRING=$(OK_COLOR)[OK]$(NO_COLOR)
+DONE_STRING=$(OK_COLOR)[DONE]$(NO_COLOR)
+ERROR_STRING=$(ERROR_COLOR)[ERRORS]$(NO_COLOR)
+WARN_STRING=$(WARN_COLOR)[WARNINGS]$(NO_COLOR)
+ECHO=/bin/printf "%s\n"
+echo=@$(ECHO) "$2$1$(NO_COLOR)"
+echon=@/bin/printf "%s" "$2$1$(NO_COLOR)"
+
+define test_output_2
+@if test $(BUILD_VERBOSE) -eq $(or $4,1); then printf "%s\n" "$2"; fi;
+@output="$$($2 2>&1)"; exit=$$?;           \
+if test 0 -ne $$exit; then                 \
+  printf "%s%s\n" "$1" "$(ERROR_STRING)";  \
+  printf "%s\n" "$$output";                \
+  exit $$exit;                             \
+elif test -n "$$output"; then              \
+  printf "%s%s\n" "$1" "$(WARN_STRING)";   \
+  printf "%s\n" "$$output";                \
+else                                       \
+  printf "%s%s\n" "$1" "$3";               \
+fi;
+endef
+
+define test_output
+@output=$$($1 2>&1); exit=$$?;            \
+if test 0 -ne $$exit; then                \
+  printf "%s\n" "$(ERROR_STRING)" $$?;    \
+  printf "%s\n" $$output;                 \
+  exit $$exit;                            \
+elif test -n "$$output"; then             \
+  printf "%s\n" "$(WARN_STRING)";         \
+  printf "%s" $$output;                   \
+else                                      \
+  printf "%s\n" "$2";                     \
+fi;
+endef
+
+# Makefile Verbosity
+ifeq ("$(origin VERBOSE)", "command line")
+BUILD_VERBOSE = $(VERBOSE)
+endif
+ifeq ("$(origin V)", "command line")
+BUILD_VERBOSE = $(V)
+endif
+
+ifndef BUILD_VERBOSE
+BUILD_VERBOSE = 0
+endif
+
+# R is reduced (default messages) - build verbose = 0
+# V is verbose messages - verbosity = 1
+# VV is super verbose - verbosity = 2
+ifeq ($(BUILD_VERBOSE), 0)
+R = @echo
+D = @
+VV = @
+endif
+ifeq ($(BUILD_VERBOSE), 1)
+R = @echo
+D =
+VV = @
+endif
+ifeq ($(BUILD_VERBOSE), 2)
+R =
+D =
+VV =
+endif
+
+INCLUDE=$(foreach dir,$(INCDIR) $(EXTRA_INCDIR),-iquote"$(dir)")
+
+ASMSRC=$(foreach asmext,$(ASMEXTS),$(call rwildcard, $(SRCDIR),*.$(asmext), $1))
+ASMOBJ=$(addprefix $(BINDIR)/,$(patsubst $(SRCDIR)/%,%.o,$(call ASMSRC,$1)))
+CSRC=$(foreach cext,$(CEXTS),$(call rwildcard, $(SRCDIR),*.$(cext), $1))
+COBJ=$(addprefix $(BINDIR)/,$(patsubst $(SRCDIR)/%,%.o,$(call CSRC, $1)))
+CXXSRC=$(foreach cxxext,$(CXXEXTS),$(call rwildcard, $(SRCDIR),*.$(cxxext), $1))
+CXXOBJ=$(addprefix $(BINDIR)/,$(patsubst $(SRCDIR)/%,%.o,$(call CXXSRC,$1)))
+
+GETALLOBJ=$(sort $(call ASMOBJ,$1) $(call COBJ,$1) $(call CXXOBJ,$1))
+
+ARCHIVE_TEXT_LIST=$(subst $(SPACE),$(COMMA),$(notdir $(basename $(LIBRARIES))))
+
+LDTIMEOBJ:=$(BINDIR)/_pros_ld_timestamp.o
+
+MONOLITH_BIN:=$(BINDIR)/monolith.bin
+MONOLITH_ELF:=$(basename $(MONOLITH_BIN)).elf
+
+HOT_BIN:=$(BINDIR)/hot.package.bin
+HOT_ELF:=$(basename $(HOT_BIN)).elf
+COLD_BIN:=$(BINDIR)/cold.package.bin
+COLD_ELF:=$(basename $(COLD_BIN)).elf
+
+# Check if USE_PACKAGE is defined to check for migration steps from purduesigbots/pros#87
+ifndef USE_PACKAGE
+$(error Your Makefile must be migrated! Visit https://pros.cs.purdue.edu/v5/releases/kernel3.1.6.html to learn how)
+endif
+
+DEFAULT_BIN=$(MONOLITH_BIN)
+ifeq ($(USE_PACKAGE),1)
+DEFAULT_BIN=$(HOT_BIN)
+endif
+
+-include $(wildcard $(FWDIR)/*.mk)
+
+.PHONY: all clean quick
+
+quick: $(DEFAULT_BIN)
+
+all: clean $(DEFAULT_BIN)
+
+clean:
+	@echo Cleaning project
+	-$Drm -rf $(BINDIR)
+	-$Drm -rf $(DEPDIR)
+
+ifeq ($(IS_LIBRARY),1)
+ifeq ($(LIBNAME),libbest)
+$(errror "You should rename your library! libbest is the default library name and should be changed")
+endif
+
+LIBAR=$(BINDIR)/$(LIBNAME).a
+TEMPLATE_DIR=$(ROOT)/template
+
+clean-template:
+	@echo Cleaning $(TEMPLATE_DIR)
+	-$Drm -rf $(TEMPLATE_DIR)
+
+$(LIBAR): $(call GETALLOBJ,$(EXCLUDE_SRC_FROM_LIB)) $(EXTRA_LIB_DEPS)
+	-$Drm -f $@
+	$(call test_output_2,Creating $@ ,$(AR) rcs $@ $^, $(DONE_STRING))
+
+.PHONY: library
+library: $(LIBAR)
+
+.PHONY: template
+template: clean-template $(LIBAR)
+	$Dpros c create-template . $(LIBNAME) $(VERSION) $(foreach file,$(TEMPLATE_FILES) $(LIBAR),--system "$(file)") --target v5 $(CREATE_TEMPLATE_FLAGS)
+endif
+
+# if project is a library source, compile the archive and link output.elf against the archive rather than source objects
+ifeq ($(IS_LIBRARY),1)
+ELF_DEPS+=$(filter-out $(call GETALLOBJ,$(EXCLUDE_SRC_FROM_LIB)), $(call GETALLOBJ,$(EXCLUDE_SRCDIRS)))
+LIBRARIES+=$(LIBAR)
+else
+ELF_DEPS+=$(call GETALLOBJ,$(EXCLUDE_SRCDIRS))
+endif
+
+$(MONOLITH_BIN): $(MONOLITH_ELF) $(BINDIR)
+	$(call test_output_2,Creating $@ for $(DEVICE) ,$(OBJCOPY) $< -O binary -R .hot_init $@,$(DONE_STRING))
+
+$(MONOLITH_ELF): $(ELF_DEPS) $(LIBRARIES)
+	$(call _pros_ld_timestamp)
+	$(call test_output_2,Linking project with $(ARCHIVE_TEXT_LIST) ,$(LD) $(LDFLAGS) $(ELF_DEPS) $(LDTIMEOBJ) $(call wlprefix,-T$(FWDIR)/v5.ld $(LNK_FLAGS)) -o $@,$(OK_STRING))
+	@echo Section sizes:
+	-$(VV)$(SIZETOOL) $(SIZEFLAGS) $@ $(SIZES_SED) $(SIZES_NUMFMT)
+
+$(COLD_BIN): $(COLD_ELF)
+	$(call test_output_2,Creating cold package binary for $(DEVICE) ,$(OBJCOPY) $< -O binary -R .hot_init $@,$(DONE_STRING))
+
+$(COLD_ELF): $(COLD_LIBRARIES)
+	$(VV)mkdir -p $(dir $@)
+	$(call test_output_2,Creating cold package with $(ARCHIVE_TEXT_LIST) ,$(LD) $(LDFLAGS) $(call wlprefix,--gc-keep-exported --whole-archive $^ -lstdc++ --no-whole-archive) $(call wlprefix,-T$(FWDIR)/v5.ld $(LNK_FLAGS) -o $@),$(OK_STRING))
+	$(call test_output_2,Stripping cold package ,$(OBJCOPY) --strip-symbol=install_hot_table --strip-symbol=__libc_init_array --strip-symbol=_PROS_COMPILE_DIRECTORY --strip-symbol=_PROS_COMPILE_TIMESTAMP --strip-symbol=_PROS_COMPILE_TIMESTAMP_INT $@ $@, $(DONE_STRING))
+	@echo Section sizes:
+	-$(VV)$(SIZETOOL) $(SIZEFLAGS) $@ $(SIZES_SED) $(SIZES_NUMFMT)
+
+$(HOT_BIN): $(HOT_ELF) $(COLD_BIN)
+	$(call test_output_2,Creating $@ for $(DEVICE) ,$(OBJCOPY) $< -O binary $@,$(DONE_STRING))
+
+$(HOT_ELF): $(COLD_ELF) $(ELF_DEPS)
+	$(call _pros_ld_timestamp)
+	$(call test_output_2,Linking hot project with $(COLD_ELF) and $(ARCHIVE_TEXT_LIST) ,$(LD) -nostartfiles $(LDFLAGS) $(call wlprefix,-R $<) $(filter-out $<,$^) $(LDTIMEOBJ) $(LIBRARIES) $(call wlprefix,-T$(FWDIR)/v5-hot.ld $(LNK_FLAGS) -o $@),$(OK_STRING))
+	@printf "%s\n" "Section sizes:"
+	-$(VV)$(SIZETOOL) $(SIZEFLAGS) $@ $(SIZES_SED) $(SIZES_NUMFMT)
+
+define asm_rule
+$(BINDIR)/%.$1.o: $(SRCDIR)/%.$1
+	$(VV)mkdir -p $$(dir $$@)
+	$$(call test_output_2,Compiled $$< ,$(AS) -c $(ASMFLAGS) -o $$@ $$<,$(OK_STRING))
+endef
+$(foreach asmext,$(ASMEXTS),$(eval $(call asm_rule,$(asmext))))
+
+define c_rule
+$(BINDIR)/%.$1.o: $(SRCDIR)/%.$1
+$(BINDIR)/%.$1.o: $(SRCDIR)/%.$1 $(DEPDIR)/$(basename $1).d
+	$(VV)mkdir -p $$(dir $$@)
+	$(MAKEDEPFOLDER)
+	$$(call test_output_2,Compiled $$< ,$(CC) -c $(INCLUDE) -iquote"$(INCDIR)/$$(dir $$*)" $(CFLAGS) $(EXTRA_CFLAGS) $(DEPFLAGS) -o $$@ $$<,$(OK_STRING))
+	$(RENAMEDEPENDENCYFILE)
+endef
+$(foreach cext,$(CEXTS),$(eval $(call c_rule,$(cext))))
+
+define cxx_rule
+$(BINDIR)/%.$1.o: $(SRCDIR)/%.$1
+$(BINDIR)/%.$1.o: $(SRCDIR)/%.$1 $(DEPDIR)/$(basename %).d
+	$(VV)mkdir -p $$(dir $$@)
+	$(MAKEDEPFOLDER)
+	$$(call test_output_2,Compiled $$< ,$(CXX) -c $(INCLUDE) -iquote"$(INCDIR)/$$(dir $$*)" $(CXXFLAGS) $(EXTRA_CXXFLAGS) $(DEPFLAGS) -o $$@ $$<,$(OK_STRING))
+	$(RENAMEDEPENDENCYFILE)
+endef
+$(foreach cxxext,$(CXXEXTS),$(eval $(call cxx_rule,$(cxxext))))
+
+define _pros_ld_timestamp
+$(VV)mkdir -p $(dir $(LDTIMEOBJ))
+@# Pipe a line of code defining _PROS_COMPILE_TOOLSTAMP and _PROS_COMPILE_DIRECTORY into GCC,
+@# which allows compilation from stdin. We define _PROS_COMPILE_DIRECTORY using a command line-defined macro
+@# which is the pwd | tail bit, which will truncate the path to the last 23 characters
+@# 
+@# const int _PROS_COMPILE_TIMESTAMP_INT = $(( $(date +%s) - $(date +%z) * 3600 ))
+@# char const * const _PROS_COMPILE_TIEMSTAMP = __DATE__ " " __TIME__
+@# char const * const _PROS_COMPILE_DIRECTORY = "$(shell pwd | tail -c 23)";
+@#
+@# The shell command $$(($$(date +%s)+($$(date +%-z)/100*3600))) fetches the current
+@# unix timestamp, and then adds the UTC timezone offset to account for time zones.
+
+$(call test_output_2,Adding timestamp ,echo 'const int _PROS_COMPILE_TIMESTAMP_INT = $(shell echo $$(($$(date +%s)+($$(date +%-z)/100*3600)))); char const * const _PROS_COMPILE_TIMESTAMP = __DATE__ " " __TIME__; char const * const _PROS_COMPILE_DIRECTORY = "$(wildcard $(shell pwd | tail -c 23))";' | $(CC) -c -x c $(CFLAGS) $(EXTRA_CFLAGS) -o $(LDTIMEOBJ) -,$(OK_STRING))
+endef
+
+# these rules are for build-compile-commands, which just print out sysroot information
+cc-sysroot:
+	@echo | $(CC) -c -x c $(CFLAGS) $(EXTRA_CFLAGS) --verbose -o /dev/null -
+cxx-sysroot:
+	@echo | $(CXX) -c -x c++ $(CXXFLAGS) $(EXTRA_CXXFLAGS) --verbose -o /dev/null -
+
+$(DEPDIR)/%.d: ;
+.PRECIOUS: $(DEPDIR)/%.d
+
+include $(wildcard $(patsubst $(SRCDIR)/%,$(DEPDIR)/%.d,$(CSRC) $(CXXSRC)))
+#include "../include/DriveTrain.hpp"
+
+DriveTrain::DriveTrain(int *motors, int inertPort) :
+    topLeft (*motors, E_MOTOR_GEAR_GREEN, 0, E_MOTOR_ENCODER_DEGREES),
+    topRight (*(motors + 1), E_MOTOR_GEAR_GREEN, 0, E_MOTOR_ENCODER_DEGREES),
+    bottomLeft (*(motors + 2),E_MOTOR_GEAR_GREEN, 0, E_MOTOR_ENCODER_DEGREES),
+    bottomRight (*(motors + 3), E_MOTOR_GEAR_GREEN, 0, E_MOTOR_ENCODER_DEGREES),
+    centerLeft (*(motors + 4), E_MOTOR_GEAR_GREEN, 0, E_MOTOR_ENCODER_DEGREES),
+    centerRight(*(motors + 5), E_MOTOR_GEAR_GREEN, 0, E_MOTOR_ENCODER_DEGREES),
+    inertSen(inertPort),
+    fwdPID(),
+    turnPID()
+{
+    this->turnPID.kp=1;this->turnPID.ki=0;this->turnPID.kd=0;
+    this->fwdPID.kp=1000;this->fwdPID.ki=1000;this->fwdPID.kd=0;
+    topLeft.set_brake_mode(E_MOTOR_BRAKE_BRAKE);
+    topRight.set_brake_mode(E_MOTOR_BRAKE_BRAKE);
+    bottomLeft.set_brake_mode(E_MOTOR_BRAKE_BRAKE);
+    bottomRight.set_brake_mode(E_MOTOR_BRAKE_BRAKE);
+    centerLeft.set_brake_mode(E_MOTOR_BRAKE_BRAKE);
+    centerRight.set_brake_mode(E_MOTOR_BRAKE_BRAKE);
+}
+
+void DriveTrain::driveGo(double power)
+{
+
+        this->topLeft.move(power);
+        this->bottomLeft.move(power);
+        this->centerLeft.move(power);
+
+        this->topRight.move(power);
+        this->bottomRight.move(power);
+        this->centerRight.move(power);
+}
+
+
+
+//Right by default
+void DriveTrain::turn(double power)
+{
+    this->topLeft.move(power);
+    this->bottomLeft.move(power);
+    this->centerLeft.move(power);
+
+    this->topRight.move(- power);
+    this->bottomRight.move(- power);
+    this->centerRight.move(- power);
+}
+
+void DriveTrain::brake()
+{
+    this->topLeft.brake();
+    this->bottomLeft.brake();
+    this->centerLeft.brake();
+
+    this->topRight.brake();
+    this->bottomRight.brake();
+    this->centerRight.brake();
+}
+
+bool DriveTrain::isHeading(double target)
+{
+    return  this->inertSen.get_rotation() >= target 
+        && this->inertSen.get_rotation() <= 1 + target;
+}
+
+double DriveTrain::getDriveRotation()
+{
+    double totRot = this->topLeft.get_position() +
+    this->bottomLeft.get_position() +
+    this->centerLeft.get_position() +
+    this->topRight.get_position() +
+    this->bottomRight.get_position() +
+    this->centerRight.get_position();
+
+    return totRot / 6;
+}
+
+void DriveTrain::turnAuton(double deg, bool left)
+{
+    int successCycles = 0;
+    this->turnPID.reset(deg);
+           
+    while(true)
+    {
+        double calc = turnPID.pidCalc(deg,this->inertSen.get_rotation());
+        if (left)
+            this->turn(calc);
+        else
+            this->turn(- calc);
+        
+        if(isHeading(deg))
+        {
+            if(successCycles == 4)
+                this->brake();
+            successCycles++;
+        } else
+            successCycles = 0;
+
+        pros::delay(5);
+    }
+}
+
+void DriveTrain::fwdAuton(double distance, bool fwd)
+{
+    int successCycles = 0;
+    this->fwdPID.reset(distance);
+    double initMtrRot = getDriveRotation();
+           
+    while(true)
+    {
+        double calc = turnPID.pidCalc(distance, getDriveRotation() - initMtrRot);
+        std::cout << calc << '\n';
+        if (fwd)
+            this->driveGo(calc);
+        else
+            this->driveGo(- calc);
+        
+        if(isHeading(distance))
+        {
+            if(successCycles == 4)
+                this->brake();
+            successCycles++;
+        } else
+            successCycles = 0;
+
+        pros::delay(5);
+    }
+}
+#include "../include/main.h"
+
+//topLeft, topRight, bottomLeft, bottomRight, centerLeft, centerRight
+int driveMotors[] = {-2,12,-10,18,-9,19};
+
+// motors, intake, puncher sensor
+Robot robot(driveMotors,1);
+/**
+ * A callback function for LLEMU's center button.
+ *
+ * When this callback is fired, it will toggle line 2 of the LCD text between
+ * "I was pressed!" and nothing.
+ */
+void on_center_button() {
+	static bool pressed = false;
+	pressed = !pressed;
+	if (pressed) {
+		pros::lcd::set_text(2, "I was pressed!");
+	} else {
+		pros::lcd::clear_line(2);
+	}
+}
+
+/**
+ * Runs initialization code. This occurs as soon as the program is started.
+ *
+ * All other competition modes are blocked by initialize; it is recommended
+ * to keep execution time for this mode under a few seconds.
+ */
+void initialize() {
+
+    selector::selectorInit(2);
+}
+/**
+ * Runs while the robot is in the disabled state of Field Management System or
+ * the VEX Competition Switch, following either autonomous or opcontrol. When
+ * the robot is enabled, this task will exit.
+ */
+void disabled() 
+{
+    selector::cleanSelector();
+}
+
+/**
+ * Runs after initialize(), and before autonomous when connected to the Field
+ * Management System or the VEX Competition Switch. This is intended for
+ * competition-specific initialization routines, such as an autonomous selector
+ * on the LCD.
+ *
+ * This task will exit when the robot is enabled and autonomous or opcontrol
+ * starts.
+ */
+void competition_initialize() {}
+
+/**
+ * Runs the user autonomous code. This function will be started in its own task
+ * with the default priority and stack size whenever the robot is enabled via
+ * the Field Management System or the VEX Competition Switch in the autonomous
+ * mode. Alternatively, this function may be called in initialize or opcontrol
+ * for non-competition testing purposes.
+ *
+ * If the robot is disabled or communications is lost, the autonomous task
+ * will be stopped. Re-enabling the robot will restart the task, not re-start it
+ * from where it left off.
+ */
+void autonomous() 
+{
+    auton::noPIDCloseSide();
+}
+
+/**
+ * Runs the operator control code. This function will be started in its own task
+ * with the default priority and stack size whenever the robot is enabled via
+ * the Field Management System or the VEX Competition Switch in the operator
+ * control mode.
+ *
+ * If no competition control is connected, this function will run immediately
+ * following initialize().
+ *
+ * If the robot is disabled or communications is lost, the
+ * operator control task will be stopped. Re-enabling the robot will restart the
+ * task, not resume it from where it left off.
+ */
+
+
+
+void opcontrol() {
+	Controller master(E_CONTROLLER_MASTER);
+    bool flickerLatch = 0;
+	while (true) 
+	{
+        if (master.get_digital(E_CONTROLLER_DIGITAL_L1))
+                robot.toggleFlys();
+        if(master.get_digital(E_CONTROLLER_DIGITAL_B) && !flickerLatch)
+        {
+            robot.fireFlicker();
+            flickerLatch = 1;
+        } else if (!master.get_digital(E_CONTROLLER_DIGITAL_B))
+            flickerLatch = 0;
+
+        if(master.get_digital(E_CONTROLLER_DIGITAL_R1))
+            robot.intake.move(127);
+        else if(master.get_digital(E_CONTROLLER_DIGITAL_R2))
+            robot.intake.move(-127);
+        else
+            robot.intake.brake();
+
+       robot.driveControl(master); 
+
+       /*
+        char tempMsg[30]; 
+        sprintf(tempMsg, "punchertemp: %f", robot.puncher.get_temperature());
+        pros::lcd::set_text(1, tempMsg);
+        */
+    }
+}
+################################################################################
+######################### User configurable parameters #########################
+# filename extensions
+CEXTS:=c
+ASMEXTS:=s S
+CXXEXTS:=cpp c++ cc
+
+# probably shouldn't modify these, but you may need them below
+ROOT=.
+FWDIR:=$(ROOT)/firmware
+BINDIR=$(ROOT)/bin
+SRCDIR=$(ROOT)/src
+INCDIR=$(ROOT)/include
+
+WARNFLAGS+=
+EXTRA_CFLAGS=
+EXTRA_CXXFLAGS=
+
+# Set to 1 to enable hot/cold linking
+USE_PACKAGE:=1
+
+# Add libraries you do not wish to include in the cold image here
+# EXCLUDE_COLD_LIBRARIES:= $(FWDIR)/your_library.a
+EXCLUDE_COLD_LIBRARIES:= 
+
+# Set this to 1 to add additional rules to compile your project as a PROS library template
+IS_LIBRARY:=0
+# TODO: CHANGE THIS!
+LIBNAME:=libbest
+VERSION:=1.0.0
+# EXCLUDE_SRC_FROM_LIB= $(SRCDIR)/unpublishedfile.c
+# this line excludes opcontrol.c and similar files
+EXCLUDE_SRC_FROM_LIB+=$(foreach file, $(SRCDIR)/main,$(foreach cext,$(CEXTS),$(file).$(cext)) $(foreach cxxext,$(CXXEXTS),$(file).$(cxxext)))
+
+# files that get distributed to every user (beyond your source archive) - add
+# whatever files you want here. This line is configured to add all header files
+# that are in the the include directory get exported
+TEMPLATE_FILES=$(INCDIR)/**/*.h $(INCDIR)/**/*.hpp
+
+.DEFAULT_GOAL=quick
+
+################################################################################
+################################################################################
+########## Nothing below this line should be edited by typical users ###########
+-include ./common.mk
+#include "../include/pid.hpp"
+PID::PID_OBJ::PID_OBJ()
+{
+    /*
+    this->kp = tuning->kp;
+    this->ki = tuning->ki;
+    this->kd = tuning->kd;
+
+    this->getCurrent = funcs->getCurrent;
+    this->action = funcs->action;
+    this->endAction = funcs->endAction;
+    this->successCond = funcs->successCond;
+    */
+}
+
+double PID::PID_OBJ::pidCalc(double target, double current)
+{
+    this->p = target - current;
+    this->i += this->p;
+    this->d = this->p - this->lastErr;
+    this->lastErr = this->p;
+    return (this->p*this->kp)+(this->i*this->ki)+(this->d*this->kd);
+}
+
+void PID::PID_OBJ::reset(double target)
+{
+    this->p=0;
+    this->i=0;
+    this->d=0;
+    this->lastErr = target;
+}
+{
+    "py/object": "pros.conductor.project.Project",
+    "py/state": {
+        "project_name": "mainCode",
+        "target": "v5",
+        "templates": {
+            "kernel": {
+                "location": "/home/jeremy/.config/pros/templates/kernel@3.8.0",
+                "metadata": {
+                    "cold_addr": "58720256",
+                    "cold_output": "bin/cold.package.bin",
+                    "hot_addr": "125829120",
+                    "hot_output": "bin/hot.package.bin",
+                    "origin": "pros-mainline",
+                    "output": "bin/monolith.bin"
+                },
+                "name": "kernel",
+                "py/object": "pros.conductor.templates.local_template.LocalTemplate",
+                "supported_kernels": null,
+                "system_files": [
+                    "include/display/lv_core/lv_vdb.h",
+                    "include/display/lv_core/lv_core.mk",
+                    "include/display/lv_misc/lv_math.h",
+                    "include/display/lv_objx/lv_tabview.h",
+                    "include/display/lv_misc/lv_color.h",
+                    "include/display/lv_hal/lv_hal_indev.h",
+                    "include/display/lv_fonts/lv_fonts.mk",
+                    "include/display/lv_misc/lv_symbol_def.h",
+                    "include/display/lv_hal/lv_hal.mk",
+                    "include/display/lv_themes/lv_theme_night.h",
+                    "include/display/lv_draw/lv_draw_triangle.h",
+                    "include/pros/optical.hpp",
+                    "include/display/lv_draw/lv_draw_vbasic.h",
+                    "include/display/lv_objx/lv_objx_templ.h",
+                    "include/display/lv_core/lv_refr.h",
+                    "include/pros/link.hpp",
+                    "include/display/lv_objx/lv_btnm.h",
+                    "include/display/lv_objx/lv_cb.h",
+                    "firmware/v5-common.ld",
+                    "include/pros/ext_adi.h",
+                    "include/pros/rotation.h",
+                    "include/display/lv_objx/lv_spinbox.h",
+                    "include/display/lv_misc/lv_circ.h",
+                    "include/display/lv_misc/lv_mem.h",
+                    "include/display/lv_objx/lv_page.h",
+                    "include/display/lv_objx/lv_ddlist.h",
+                    "include/display/lv_core/lv_group.h",
+                    "include/display/lvgl.h",
+                    "include/display/lv_objx/lv_chart.h",
+                    "include/pros/distance.h",
+                    "include/display/lv_objx/lv_list.h",
+                    "include/pros/vision.h",
+                    "include/pros/misc.hpp",
+                    "include/display/lv_draw/lv_draw.h",
+                    "include/display/lv_objx/lv_label.h",
+                    "include/display/lv_misc/lv_font.h",
+                    "include/display/lv_draw/lv_draw_img.h",
+                    "include/display/lv_misc/lv_log.h",
+                    "include/display/lv_misc/lv_templ.h",
+                    "include/pros/llemu.h",
+                    "include/display/lv_objx/lv_btn.h",
+                    "include/display/lv_fonts/lv_font_builtin.h",
+                    "include/display/lv_objx/lv_calendar.h",
+                    "firmware/libm.a",
+                    "include/display/lv_conf.h",
+                    "include/display/lv_objx/lv_sw.h",
+                    "include/display/lv_draw/lv_draw_rect.h",
+                    "include/display/lv_objx/lv_cont.h",
+                    "include/pros/vision.hpp",
+                    "include/display/lv_objx/lv_mbox.h",
+                    "include/pros/adi.hpp",
+                    "include/pros/imu.hpp",
+                    "include/display/lv_objx/lv_table.h",
+                    "include/pros/screen.hpp",
+                    "include/display/lv_draw/lv_draw_label.h",
+                    "include/display/lv_misc/lv_txt.h",
+                    "include/pros/api_legacy.h",
+                    "include/display/lv_objx/lv_lmeter.h",
+                    "include/display/lv_themes/lv_theme_templ.h",
+                    "include/pros/apix.h",
+                    "include/display/lv_draw/lv_draw.mk",
+                    "include/display/lv_themes/lv_theme_alien.h",
+                    "include/pros/colors.hpp",
+                    "include/display/lv_objx/lv_img.h",
+                    "firmware/libc.a",
+                    "include/display/lv_themes/lv_theme_zen.h",
+                    "include/display/lv_themes/lv_theme_material.h",
+                    "include/display/lv_draw/lv_draw_arc.h",
+                    "include/display/lv_themes/lv_theme_mono.h",
+                    "include/display/lv_themes/lv_themes.mk",
+                    "include/display/lv_objx/lv_slider.h",
+                    "include/pros/serial.h",
+                    "include/display/lv_themes/lv_theme.h",
+                    "include/display/README.md",
+                    "include/display/lv_objx/lv_canvas.h",
+                    "include/pros/misc.h",
+                    "include/display/lv_misc/lv_fs.h",
+                    "include/pros/rtos.h",
+                    "include/display/lv_core/lv_indev.h",
+                    "include/pros/motors.hpp",
+                    "include/display/lv_core/lv_style.h",
+                    "include/display/lv_version.h",
+                    "include/display/lv_core/lv_lang.h",
+                    "include/api.h",
+                    "include/display/lv_objx/lv_gauge.h",
+                    "include/pros/rtos.hpp",
+                    "include/display/lv_hal/lv_hal_disp.h",
+                    "include/pros/motors.h",
+                    "include/display/lv_objx/lv_led.h",
+                    "include/display/lv_draw/lv_draw_rbasic.h",
+                    "include/display/lv_objx/lv_kb.h",
+                    "include/display/lv_conf_checker.h",
+                    "include/display/lv_hal/lv_hal.h",
+                    "include/display/lv_draw/lv_draw_line.h",
+                    "include/pros/gps.hpp",
+                    "include/display/lv_objx/lv_objx.mk",
+                    "include/display/lv_objx/lv_win.h",
+                    "include/display/lv_core/lv_obj.h",
+                    "include/display/lv_objx/lv_arc.h",
+                    "include/pros/link.h",
+                    "include/display/lv_objx/lv_preload.h",
+                    "include/display/lv_misc/lv_area.h",
+                    "include/display/lv_misc/lv_ll.h",
+                    "include/pros/optical.h",
+                    "include/pros/serial.hpp",
+                    "include/pros/screen.h",
+                    "include/display/lv_themes/lv_theme_nemo.h",
+                    "include/pros/llemu.hpp",
+                    "firmware/libpros.a",
+                    "include/display/lv_misc/lv_gc.h",
+                    "include/display/lv_misc/lv_anim.h",
+                    "include/display/lv_objx/lv_line.h",
+                    "include/pros/distance.hpp",
+                    "include/pros/rotation.hpp",
+                    "include/pros/error.h",
+                    "include/display/lv_objx/lv_tileview.h",
+                    "include/pros/gps.h",
+                    "include/display/lv_misc/lv_task.h",
+                    "include/pros/imu.h",
+                    "firmware/v5-hot.ld",
+                    "include/display/lv_misc/lv_misc.mk",
+                    "include/pros/colors.h",
+                    "common.mk",
+                    "include/display/lv_objx/lv_roller.h",
+                    "include/display/lv_objx/lv_bar.h",
+                    "include/display/lv_themes/lv_theme_default.h",
+                    "firmware/v5.ld",
+                    "include/display/lv_misc/lv_ufs.h",
+                    "include/display/lv_hal/lv_hal_tick.h",
+                    "include/display/licence.txt",
+                    "include/display/lv_objx/lv_ta.h",
+                    "include/display/lv_objx/lv_imgbtn.h",
+                    "include/pros/adi.h"
+                ],
+                "target": "v5",
+                "user_files": [
+                    "src/main.cc",
+                    ".gitignore",
+                    "Makefile",
+                    "src/main.cpp",
+                    "src/main.c",
+                    "include/main.hpp",
+                    "include/main.hh",
+                    "include/main.h"
+                ],
+                "version": "3.8.0"
+            },
+            "okapilib": {
+                "location": "/home/jeremy/.config/pros/templates/okapilib@4.8.0",
+                "metadata": {
+                    "origin": "pros-mainline"
+                },
+                "name": "okapilib",
+                "py/object": "pros.conductor.templates.local_template.LocalTemplate",
+                "supported_kernels": "^3.3.1",
+                "system_files": [
+                    "include/okapi/api/odometry/odomMath.hpp",
+                    "include/okapi/squiggles/physicalmodel/physicalmodel.hpp",
+                    "include/okapi/api/chassis/model/threeEncoderXDriveModel.hpp",
+                    "include/okapi/api/chassis/model/hDriveModel.hpp",
+                    "include/okapi/api/chassis/model/readOnlyChassisModel.hpp",
+                    "include/okapi/api/device/button/buttonBase.hpp",
+                    "include/okapi/api/units/QAngularJerk.hpp",
+                    "include/okapi/api/control/iterative/iterativeController.hpp",
+                    "include/okapi/api/control/controllerInput.hpp",
+                    "include/okapi/squiggles/math/quinticpolynomial.hpp",
+                    "include/okapi/api/device/rotarysensor/continuousRotarySensor.hpp",
+                    "include/okapi/api/control/async/asyncPositionController.hpp",
+                    "include/okapi/api/filter/passthroughFilter.hpp",
+                    "include/okapi/api/device/rotarysensor/rotarySensor.hpp",
+                    "include/okapi/api/odometry/stateMode.hpp",
+                    "include/okapi/impl/device/controller.hpp",
+                    "include/okapi/api/units/QTime.hpp",
+                    "include/okapi/api/control/util/controllerRunner.hpp",
+                    "include/okapi/api/units/QTorque.hpp",
+                    "include/okapi/impl/device/rotarysensor/IMU.hpp",
+                    "include/okapi/api/control/util/pidTuner.hpp",
+                    "include/okapi/impl/util/timeUtilFactory.hpp",
+                    "include/okapi/api/device/motor/abstractMotor.hpp",
+                    "include/okapi/impl/device/button/controllerButton.hpp",
+                    "include/okapi/impl/device/rotarysensor/integratedEncoder.hpp",
+                    "include/okapi/impl/device/rotarysensor/adiEncoder.hpp",
+                    "include/okapi/api/filter/composableFilter.hpp",
+                    "include/okapi/api/chassis/model/xDriveModel.hpp",
+                    "include/okapi/squiggles/geometry/pose.hpp",
+                    "include/okapi/api/odometry/twoEncoderOdometry.hpp",
+                    "include/okapi/api/util/timeUtil.hpp",
+                    "firmware/squiggles.mk",
+                    "include/okapi/api/control/async/asyncPosPidController.hpp",
+                    "include/okapi/impl/control/util/controllerRunnerFactory.hpp",
+                    "include/okapi/impl/chassis/controller/chassisControllerBuilder.hpp",
+                    "include/okapi/api/control/closedLoopController.hpp",
+                    "include/okapi/squiggles/math/utils.hpp",
+                    "include/okapi/api/control/async/asyncVelIntegratedController.hpp",
+                    "include/okapi/api/units/QLength.hpp",
+                    "include/okapi/impl/device/motor/motor.hpp",
+                    "include/okapi/api/odometry/odometry.hpp",
+                    "include/okapi/api/units/RQuantity.hpp",
+                    "include/okapi/api/units/QArea.hpp",
+                    "include/okapi/api/filter/filter.hpp",
+                    "include/okapi/api/device/button/abstractButton.hpp",
+                    "include/okapi/api/units/QPressure.hpp",
+                    "include/okapi/api/control/async/asyncLinearMotionProfileController.hpp",
+                    "include/okapi/api/control/util/flywheelSimulator.hpp",
+                    "include/okapi/api/util/logging.hpp",
+                    "include/okapi/api/chassis/model/threeEncoderSkidSteerModel.hpp",
+                    "include/okapi/api/filter/emaFilter.hpp",
+                    "include/okapi/impl/device/controllerUtil.hpp",
+                    "include/okapi/api/util/mathUtil.hpp",
+                    "include/okapi/api/filter/averageFilter.hpp",
+                    "include/okapi/api/control/iterative/iterativeVelocityController.hpp",
+                    "include/okapi/api/odometry/point.hpp",
+                    "include/okapi/api/control/async/asyncController.hpp",
+                    "include/okapi/impl/control/async/asyncMotionProfileControllerBuilder.hpp",
+                    "include/okapi/api/coreProsAPI.hpp",
+                    "include/okapi/api/units/QSpeed.hpp",
+                    "include/okapi/impl/control/util/pidTunerFactory.hpp",
+                    "include/okapi/api/units/QAngle.hpp",
+                    "include/okapi/api/control/async/asyncVelocityController.hpp",
+                    "include/okapi/api/odometry/threeEncoderOdometry.hpp",
+                    "include/okapi/api/filter/velMath.hpp",
+                    "include/okapi/api/control/async/asyncPosIntegratedController.hpp",
+                    "include/okapi/squiggles/constraints.hpp",
+                    "include/okapi/api/filter/filteredControllerInput.hpp",
+                    "include/okapi/api/chassis/controller/chassisControllerPid.hpp",
+                    "include/okapi/api/control/iterative/iterativePositionController.hpp",
+                    "include/okapi/api/control/offsettableControllerInput.hpp",
+                    "include/okapi/squiggles/squiggles.hpp",
+                    "include/okapi/api/units/QAngularSpeed.hpp",
+                    "include/okapi/api/control/iterative/iterativePosPidController.hpp",
+                    "include/okapi/squiggles/physicalmodel/tankmodel.hpp",
+                    "include/okapi/impl/util/rate.hpp",
+                    "include/okapi/api/filter/medianFilter.hpp",
+                    "include/okapi/impl/device/rotarysensor/potentiometer.hpp",
+                    "include/okapi/api/control/iterative/iterativeVelPidController.hpp",
+                    "include/okapi/squiggles/geometry/profilepoint.hpp",
+                    "include/okapi/impl/device/button/adiButton.hpp",
+                    "include/okapi/impl/control/async/asyncVelControllerBuilder.hpp",
+                    "include/okapi/api/filter/demaFilter.hpp",
+                    "include/okapi/api/units/RQuantityName.hpp",
+                    "include/okapi/api/control/util/pathfinderUtil.hpp",
+                    "include/okapi/api/util/abstractTimer.hpp",
+                    "include/okapi/api.hpp",
+                    "include/okapi/impl/control/async/asyncPosControllerBuilder.hpp",
+                    "include/okapi/api/chassis/controller/chassisScales.hpp",
+                    "include/okapi/api/units/QMass.hpp",
+                    "include/okapi/impl/device/rotarysensor/adiGyro.hpp",
+                    "include/okapi/impl/util/configurableTimeUtilFactory.hpp",
+                    "include/okapi/api/control/util/settledUtil.hpp",
+                    "include/okapi/impl/control/iterative/iterativeControllerFactory.hpp",
+                    "include/okapi/impl/util/timer.hpp",
+                    "include/okapi/api/chassis/controller/defaultOdomChassisController.hpp",
+                    "include/okapi/impl/device/motor/motorGroup.hpp",
+                    "include/okapi/api/control/async/asyncWrapper.hpp",
+                    "include/okapi/squiggles/io.hpp",
+                    "include/okapi/api/filter/ekfFilter.hpp",
+                    "include/okapi/api/control/async/asyncMotionProfileController.hpp",
+                    "include/okapi/squiggles/geometry/controlvector.hpp",
+                    "include/okapi/impl/device/distanceSensor.hpp",
+                    "include/okapi/api/control/controllerOutput.hpp",
+                    "include/okapi/api/units/QVolume.hpp",
+                    "include/okapi/squiggles/spline.hpp",
+                    "include/okapi/api/units/QJerk.hpp",
+                    "include/okapi/api/chassis/controller/chassisController.hpp",
+                    "include/okapi/squiggles/physicalmodel/passthroughmodel.hpp",
+                    "include/okapi/api/units/QAngularAcceleration.hpp",
+                    "include/okapi/api/chassis/controller/chassisControllerIntegrated.hpp",
+                    "include/okapi/impl/device/adiUltrasonic.hpp",
+                    "include/okapi/impl/device/opticalSensor.hpp",
+                    "include/okapi/api/units/QForce.hpp",
+                    "include/okapi/api/util/supplier.hpp",
+                    "include/okapi/api/chassis/controller/odomChassisController.hpp",
+                    "include/okapi/impl/filter/velMathFactory.hpp",
+                    "include/okapi/api/control/iterative/iterativeMotorVelocityController.hpp",
+                    "include/okapi/api/control/async/asyncVelPidController.hpp",
+                    "include/okapi/api/odometry/odomState.hpp",
+                    "include/okapi/api/chassis/model/chassisModel.hpp",
+                    "include/okapi/api/units/QFrequency.hpp",
+                    "include/okapi/impl/device/rotarysensor/rotationSensor.hpp",
+                    "include/okapi/api/util/abstractRate.hpp",
+                    "include/okapi/impl/device/motor/adiMotor.hpp",
+                    "include/okapi/api/units/QAcceleration.hpp",
+                    "include/okapi/api/chassis/model/skidSteerModel.hpp",
+                    "firmware/okapilib.a"
+                ],
+                "target": "v5",
+                "user_files": [],
+                "version": "4.8.0"
+            }
+        },
+        "upload_options": {}
+    }
+}
+#include "../include/Robot.hpp"
+
+double inToDeg(double in, double wheelDiam)
+{
+        return (in / (M_PI * wheelDiam)) * 360;
+}
+
+bool isAtDeg(double deg, Rotation sensor)
+{
+        std::cout << sensor.get_position() << '\n';
+        return sensor.get_position()/100 >= deg; 
+}
+
+Robot::Robot(int *driveMotors, int intakeMotor) :
+        master(E_CONTROLLER_MASTER),
+        driveTrain(driveMotors, 3),
+        intake(intakeMotor),
+        fly1(3),
+        fly2(-13),
+        flys({fly1,fly2}),
+        flicker('a', LOW),
+        flicker2('b',LOW)
+{
+        this->intakeOn = 0;
+}
+
+
+
+void Robot::intakeToggle()
+{
+        this->intakeOn = !this->intakeOn;
+        this->intake.move((127*0.7) * intakeOn);
+}
+
+
+
+void Robot::fireFlicker()
+{
+    flickerState = !flickerState;
+    this->flicker.set_value(flickerState);
+    this->flicker2.set_value(flickerState);
+}
+
+void Robot::driveControl(Controller master)
+{
+    double leftStick = master.get_analog(E_CONTROLLER_ANALOG_RIGHT_Y);
+    double rightStick = master.get_analog(E_CONTROLLER_ANALOG_LEFT_Y);
+
+    this->driveTrain.topLeft.move(leftStick);
+    this->driveTrain.bottomLeft.move(leftStick);
+    this->driveTrain.centerLeft.move(leftStick);
+
+    this->driveTrain.topRight.move(rightStick);
+    this->driveTrain.bottomRight.move(rightStick);
+    this->driveTrain.centerRight.move(rightStick);
+}
+
+void Robot::basicFwd(double time, double power)
+{
+    this->driveTrain.topLeft.move(power);
+    this->driveTrain.bottomLeft.move(power);
+    this->driveTrain.centerLeft.move(power);
+
+    this->driveTrain.topRight.move(power);
+    this->driveTrain.bottomRight.move(power);
+    this->driveTrain.centerRight.move(power);
+
+    pros::delay(time * 1000);
+
+    this->driveTrain.topLeft.brake();
+    this->driveTrain.bottomLeft.brake();
+    this->driveTrain.centerLeft.brake();
+
+    this->driveTrain.topRight.brake();
+    this->driveTrain.bottomRight.brake();
+    this->driveTrain.centerRight.brake();
+}
+
+void Robot::toggleFlys()
+{
+    this->flysOn=!this->flysOn;
+    if(flysOn)
+        flys.move(127);
+    else
+        flys.brake();
+}
+#include "../include/selector.hpp"
+
+void selector::selectorInit(short int autonCount)
+{
+    if(!lcd::is_initialized())
+    {
+        lcd::initialize();
+    }
+    lcd::clear();
+    lcd::set_text(1, "Select Auton");
+
+    for(int iii = 0; autonCount > iii; iii++)
+    {
+        lcd::set_text((selector::autons+iii)->autonNumber + 3,
+                (selector::autons+iii)->autonName);
+    }
+
+    lcd::register_btn1_cb(selector::switchAuton);
+}
+
+void selector::getAutons(short int autonCount)
+{
+    selector::autons = (selector::autonData *)(malloc(sizeof(selector::autonData)*autonCount));
+    /*add autons to the array here*/
+    (selector::autons)->autonName = "MATCH_LOAD-SIDE";
+    (selector::autons)->autonNumber = 0;
+    (selector::autons)->autonFunction = &(auton::noPIDCloseSide);
+
+    (selector::autons)->autonName = "SKILLS";
+    (selector::autons)->autonNumber = 2;
+    (selector::autons)->autonFunction = &(auton::basicFarSide);
+    /*----------------------------*/
+}
+
+
+void selector::switchAuton()
+{
+}
+
+void selector::cleanSelector()
+{
+    free(selector::autons);
+}
+/**
+ * \file api.h
+ *
+ * PROS API header provides high-level user functionality
+ *
+ * Contains declarations for use by typical VEX programmers using PROS.
+ *
+ * This file should not be modified by users, since it gets replaced whenever
+ * a kernel upgrade occurs.
+ *
+ * \copyright Copyright (c) 2017-2023, Purdue University ACM SIGBots.
+ * All rights reserved.
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/.
+ */
+
+#ifndef _PROS_API_H_
+#define _PROS_API_H_
+
+#ifdef __cplusplus
+#include <cerrno>
+#include <cmath>
+#include <cstdbool>
+#include <cstddef>
+#include <cstdint>
+#include <cstdio>
+#include <cstdlib>
+#include <iostream>
+#else /* (not) __cplusplus */
+#include <errno.h>
+#include <math.h>
+#include <stdbool.h>
+#include <stddef.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#endif /* __cplusplus */
+
+#define PROS_VERSION_MAJOR 3
+#define PROS_VERSION_MINOR 8
+#define PROS_VERSION_PATCH 0
+#define PROS_VERSION_STRING "3.8.0"
+
+#include "pros/adi.h"
+#include "pros/colors.h"
+#include "pros/distance.h"
+#include "pros/error.h"
+#include "pros/ext_adi.h"
+#include "pros/gps.h"
+#include "pros/imu.h"
+#include "pros/link.h"
+#include "pros/llemu.h"
+#include "pros/misc.h"
+#include "pros/motors.h"
+#include "pros/optical.h"
+#include "pros/rtos.h"
+#include "pros/rotation.h"
+#include "pros/screen.h"
+#include "pros/vision.h"
+
+#ifdef __cplusplus
+#include "pros/adi.hpp"
+#include "pros/distance.hpp"
+#include "pros/gps.hpp"
+#include "pros/imu.hpp"
+#include "pros/llemu.hpp"
+#include "pros/misc.hpp"
+#include "pros/motors.hpp"
+#include "pros/optical.hpp"
+#include "pros/rotation.hpp"
+#include "pros/rtos.hpp"
+#include "pros/screen.hpp"
+#include "pros/vision.hpp"
+#include "pros/link.hpp"
+#endif
+
+#endif  // _PROS_API_H_
+#ifndef AUTON_HEADERPP_OVERUNDER
+#define AUTON_HEADERPP_OVERUNDER
+
+#include "main.h"
+
+
+namespace auton
+{
+void basicCloseSide();
+void basicFarSide();
+void noPIDCloseSide();
+void noPIDFarside();
+void goodAuton();
+}
+
+#endif //AUTON_HEADERPP_OVERUNDER
+#!/bin/bash
+pros m
+sudo pros ut
+#ifndef DRIVE_TRAIN_OBJ_HEAD
+#define DRIVE_TRAIN_OBJ_HEAD
+
+#include "api.h"
+#include "pid.hpp"
+
+using namespace pros;
+using namespace pros::literals;
+
+
+
+class DriveTrain 
+{
+    public:
+        Motor topLeft;
+        Motor topRight;
+        Motor bottomLeft;
+        Motor bottomRight;
+        Motor centerLeft;
+        Motor centerRight;
+        Imu inertSen;
+
+        PID::PID_OBJ fwdPID;
+        PID::PID_OBJ turnPID;
+
+        int motorInit;
+        
+        DriveTrain(int *motors, int inertPort);
+        void driveGo(double power);
+        void turn(double power);
+        void brake();
+        bool isHeading(double target);
+        double getDriveRotation();
+
+        //turn funcs
+        void turnAuton(double deg, bool left);
+        void fwdAuton(double distance, bool fwd);
+};
+#endif //DRIVE_TRAIN_OBJ_HEAD
+/**
+ * \file main.h
+ *
+ * Contains common definitions and header files used throughout your PROS
+ * project.
+ *
+ * \copyright Copyright (c) 2017-2023, Purdue University ACM SIGBots.
+ * All rights reserved.
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/.
+ */
+
+#ifndef _PROS_MAIN_H_
+#define _PROS_MAIN_H_
+
+/**
+ * If defined, some commonly used enums will have preprocessor macros which give
+ * a shorter, more convenient naming pattern. If this isn't desired, simply
+ * comment the following line out.
+ *
+ * For instance, E_CONTROLLER_MASTER has a shorter name: CONTROLLER_MASTER.
+ * E_CONTROLLER_MASTER is pedantically correct within the PROS styleguide, but
+ * not convenient for most student programmers.
+ */
+#define PROS_USE_SIMPLE_NAMES
+
+/**
+ * If defined, C++ literals will be available for use. All literals are in the
+ * pros::literals namespace.
+ *
+ * For instance, you can do `4_mtr = 50` to set motor 4's target velocity to 50
+ */
+#define PROS_USE_LITERALS
+
+#include <stdio.h>
+
+#include "api.h"
+#include "Robot.hpp"
+#include "auton.hpp"
+#include "selector.hpp"
+
+/**
+ * You should add more #includes here
+ */
+//#include "okapi/api.hpp"
+//#include "pros/api_legacy.h"
+
+/**
+ * If you find doing pros::Motor() to be tedious and you'd prefer just to do
+ * Motor, you can use the namespace with the following commented out line.
+ *
+ * IMPORTANT: Only the okapi or pros namespace may be used, not both
+ * concurrently! The okapi namespace will export all symbols inside the pros
+ * namespace.
+ */
+using namespace pros;
+using namespace pros::literals;
+// using namespace okapi;
+
+/**
+ * Prototypes for the competition control tasks are redefined here to ensure
+ * that they can be called from user code (i.e. calling autonomous from a
+ * button press in opcontrol() for testing purposes).
+ */
+
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+void autonomous(void);
+void initialize(void);
+void disabled(void);
+void competition_initialize(void);
+void opcontrol(void);
+#ifdef __cplusplus
+}
+#endif
+
+#ifdef __cplusplus
+/**
+ * You can add C++-only headers here
+ */
+//#include <iostream>
+#endif
+
+// global variables//topLeft, topRight, bottomLeft, bottomRight, centerLeft, centerRight
+// motors, intake, puncher sensor
+extern Robot robot;
+
+#endif  // _PROS_MAIN_H_
+#ifndef PID_OBJECT_HEADER
+#define PID_OBJECT_HEADER
+
+
+#include "api.h"
+#include <functional>
+
+using namespace pros;
+using namespace pros::literals;
+
+
+namespace PID
+{
+
+class PID_OBJ
+{
+    public:
+        double p;
+        double i;
+        double d;
+        double kp;
+        double ki;
+        double kd;
+
+        double lastErr;
+
+        PID_OBJ();
+
+        double pidCalc(double target, double current);
+        void reset(double target);
+};
+
+} //namespace PID end 
+
+#endif // PID_OBJECT_HEADER
+#ifndef INCLUDE_ROBOT_H_
+#define INCLUDE_ROBOT_H_
+
+#include "api.h"
+#include "../include/DriveTrain.hpp"
+#include "pros/rotation.hpp"
+# include <math.h>
+
+#define _USE_MATH_DEFINES
+
+using namespace pros;
+using namespace pros::literals;
+
+double inToDeg(double in, double wheelCir);
+bool isAtDeg(double deg, Rotation sensor);
+
+class Robot {
+    public:
+        Controller master;
+        DriveTrain driveTrain;
+        Motor intake;
+        Motor fly1;
+        Motor fly2;
+        Motor_Group flys;
+        ADIDigitalOut flicker;
+        ADIDigitalOut flicker2;
+        bool flickerState = LOW;
+        bool intakeOn;
+        bool flysOn;
+
+        Robot(int *driveMotors, int intakeMotor);
+        void intakeToggle();
+        void fireFlicker();
+        void driveControl(Controller);
+        void basicFwd(double, double);
+        void basicTurn(double, double);
+        void toggleFlys();
+};
+
+#endif //INCLUDE_ROBOT_H_
+#ifndef AUTON_SELECTOR_CPP_HEADER
+#define AUTON_SELECTOR_CPP_HEADER
+
+#include <string>
+#include "api.h"
+
+/*include header for where the auton programs are stored*/
+#include "auton.hpp"
+/*------------------------------------------------------*/
+
+#define PROS_USE_SIMPLE_NAMES
+
+using namespace pros;
+
+namespace selector
+{
+    struct autonData
+    {
+        std::string autonName;
+        short int autonNumber;
+        void (*autonFunction)();
+    };
+
+    autonData *autons;
+        
+    int currentAuton = 0;
+
+    void selectorInit(short int autonCount);
+    void getAutons(short int autonCount);
+    void switchAuton();
+    void cleanSelector();
+
+}
+
+#endif //AUTON_SELECTOR_CPP_HEADER

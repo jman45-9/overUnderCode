@@ -5,21 +5,22 @@ double inToDeg(double in, double wheelDiam)
         return (in / (M_PI * wheelDiam)) * 360;
 }
 
-bool isAtDeg(double deg, Rotation sensor)
+bool isAtDeg(double deg, Rotation sensor, bool left)
 {
         std::cout << sensor.get_position() << '\n';
-        return sensor.get_position()/100 >= deg; 
+        return sensor.get_position()/100.0 >= deg; 
 }
 
 Robot::Robot(int *driveMotors, int intakeMotor) :
         master(E_CONTROLLER_MASTER),
-        driveTrain(driveMotors, 3),
+        driveTrain(driveMotors, 11),
         intake(intakeMotor),
         fly1(3),
         fly2(-13),
         flys({fly1,fly2}),
         flicker('a', LOW),
-        flicker2('b',LOW)
+        flicker2('b',LOW),
+        endFlicker('c',LOW)
 {
         this->intakeOn = 0;
 }
@@ -41,10 +42,19 @@ void Robot::fireFlicker()
     this->flicker2.set_value(flickerState);
 }
 
+int sign(double input)
+{
+    if(input >=0)
+        return 1;
+    else
+        return -1;
+}
+
 void Robot::driveControl(Controller master)
 {
-    double leftStick = master.get_analog(E_CONTROLLER_ANALOG_RIGHT_Y);
-    double rightStick = master.get_analog(E_CONTROLLER_ANALOG_LEFT_Y);
+    double leftStick = (master.get_analog(E_CONTROLLER_ANALOG_RIGHT_Y) * master.get_analog(E_CONTROLLER_ANALOG_RIGHT_Y))/127.0 * sign(master.get_analog(E_CONTROLLER_ANALOG_RIGHT_Y));
+    double rightStick = (master.get_analog(E_CONTROLLER_ANALOG_LEFT_Y) * master.get_analog(E_CONTROLLER_ANALOG_LEFT_Y))/127.0 * sign(master.get_analog(E_CONTROLLER_ANALOG_LEFT_Y));
+
 
     this->driveTrain.topLeft.move(leftStick);
     this->driveTrain.bottomLeft.move(leftStick);
