@@ -9,6 +9,6 @@ void basicCloseSide();
 void basicFarSide();
 void noPIDCloseSide();
 void noPIDFarside();
-void goodAuton();
+void matchLoad();
 }
 #endif //AUTON_HEADERPP_OVERUNDER

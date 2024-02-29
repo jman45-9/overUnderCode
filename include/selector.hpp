@@ -14,20 +14,7 @@ using namespace pros;
 
 namespace selector
 {
-    struct autonData
-    {
-        std::string autonName;
-        short int autonNumber;
-        void (*autonFunction)();
-    };
-
-    autonData *autons;
-        
-    void selectorInit(short int autonCount);
-    void getAutons(short int autonCount);
-    void switchAuton();
-    void cleanSelector();
-
+    
 }
 
 #endif //AUTON_SELECTOR_CPP_HEADER

@@ -39,6 +39,7 @@
 #include "api.h"
 #include "Robot.hpp"
 #include "auton.hpp"
+#include "selector.hpp"
 
 /**
  * You should add more #includes here

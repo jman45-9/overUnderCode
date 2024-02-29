@@ -28,11 +28,6 @@ void on_center_button() {
  * to keep execution time for this mode under a few seconds.
  */
 void initialize() {
-	pros::lcd::initialize();
-	pros::lcd::set_text(1, "Hello PROS User!");
-
-	pros::lcd::register_btn1_cb(on_center_button);
-
 }
 /**
  * Runs while the robot is in the disabled state of Field Management System or
@@ -65,16 +60,11 @@ void competition_initialize() {}
  */
 void autonomous() 
 {
-    robot.driveTrain.mathFwd(17);
-    pros::delay(1.8 * 1000);
-    robot.driveTrain.turnAuton(-90, 0);
-    robot.intake.move(100);
-    robot.driveTrain.mathFwd(-5);
-    pros::delay(0.4*1000);
-    robot.intake.brake();
-    robot.driveTrain.turnAuton(180, 0);
-    robot.driveTrain.mathFwd(-7.8);
-    pros::lcd::set_text(1, "done");
+    //auton::matchLoad();
+    robot.driveTrain.fwdAuton(24*2);
+    std::cerr << "fertig";
+
+    
 }
 
 /**
@@ -97,6 +87,7 @@ void autonomous()
 void opcontrol() {
 	Controller master(E_CONTROLLER_MASTER);
     bool flickerLatch = 0;
+    bool flyLatch = 0;
 	while (true) 
 	{
         if (master.get_digital(E_CONTROLLER_DIGITAL_L1))
@@ -107,6 +98,13 @@ void opcontrol() {
             flickerLatch = 1;
         } else if (!master.get_digital(E_CONTROLLER_DIGITAL_B))
             flickerLatch = 0;
+
+        if(master.get_digital(E_CONTROLLER_DIGITAL_L1) && !flyLatch)
+        {
+            robot.toggleFlys();
+            flyLatch = 1;
+        } else if (!master.get_digital(E_CONTROLLER_DIGITAL_L1))
+            flyLatch = 0;
 
         if(master.get_digital(E_CONTROLLER_DIGITAL_R1))
             robot.intake.move(127);

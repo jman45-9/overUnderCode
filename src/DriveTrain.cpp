@@ -14,7 +14,7 @@ DriveTrain::DriveTrain(int *motors, int inertPort) :
     turnPID()
 {
     this->turnPID.kp=7.5;this->turnPID.ki=0.00;this->turnPID.kd=50;
-    this->fwdPID.kp=0.1;this->fwdPID.ki=0.1;this->fwdPID.kd=0;
+    this->fwdPID.kp=1;this->fwdPID.ki=0;this->fwdPID.kd=0;
     topLeft.set_brake_mode(E_MOTOR_BRAKE_COAST); 
     topRight.set_brake_mode(E_MOTOR_BRAKE_COAST);
     bottomLeft.set_brake_mode(E_MOTOR_BRAKE_COAST);
@@ -131,19 +131,20 @@ void DriveTrain::turnAuton(double deg, bool left)
 
 void DriveTrain::fwdAuton(double distance)
 {
+    double wheelDiam = 3.25;
+    double degress = ((distance / (wheelDiam*M_PI)) * 360);
     int successCycles = 0;
     this->fwdPID.reset(distance);
     double initMtrRot = getDriveRotation();
-    double target = distance + (initMtrRot*(3.25*M_PI));
+    double target = degress + initMtrRot;
            
     while(true)
     {
-        double curDistance = getDriveRotation()*(3.25*M_PI);
-        double calc = fwdPID.pidCalc(target, curDistance);
-        std::cout << calc << '\n';
+        double curDeg = getDriveRotation();
+        double calc = fwdPID.pidCalc(target, curDeg);
         this->driveGo(calc);
         
-        if(curDistance >= target && curDistance <= target+1 )
+        if(curDeg >= target && curDeg <= target+1 )
         {
             if(successCycles == 4)
             {
