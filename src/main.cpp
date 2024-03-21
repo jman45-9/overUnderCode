@@ -60,9 +60,7 @@ void competition_initialize() {}
  */
 void autonomous() 
 {
-    //auton::matchLoad();
-    robot.driveTrain.fwdAuton(24*2);
-    std::cerr << "fertig";
+    auton::matchLoad();
 
     
 }
@@ -90,8 +88,6 @@ void opcontrol() {
     bool flyLatch = 0;
 	while (true) 
 	{
-        if (master.get_digital(E_CONTROLLER_DIGITAL_L1))
-                robot.toggleFlys();
         if(master.get_digital(E_CONTROLLER_DIGITAL_B) && !flickerLatch)
         {
             robot.fireFlicker();
